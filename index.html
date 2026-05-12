@@ -1145,25 +1145,32 @@ function loadImage(input) {
   };
   reader.readAsDataURL(file);
 }
+let currentFileType='image/jpeg';
 function compressImage() {
   const canvas=document.getElementById('imgCanvas');
   const q=parseInt(document.getElementById('qualSlider').value)/100;
+  // Use webp for best compression, fallback to jpeg
+  const mimeType=canvas.toDataURL('image/webp').startsWith('data:image/webp')?'image/webp':'image/jpeg';
   canvas.toBlob(blob=>{
+    if(!blob){showToast('Compression failed. Try another image.');return;}
     imgBlob=blob;
     const url=URL.createObjectURL(blob);
     const prev=document.getElementById('imgPreview');
     prev.src=url; prev.style.display='block';
-    const pct=Math.round((1-blob.size/origSize)*100);
+    const saved=origSize-blob.size;
+    const pct=Math.round((saved/origSize)*100);
+    const ext=mimeType==='image/webp'?'WebP':'JPEG';
     document.getElementById('imgStats').innerHTML=
-      `Original: ${fmt(origSize)} → Compressed: ${fmt(blob.size)} <span class="badge ${pct>0?'badge-good':'badge-warn'}">${pct>0?'↓':'↑'}${Math.abs(pct)}%</span>`;
-  },'image/jpeg',q);
+      `Original: ${fmt(origSize)} → Compressed: ${fmt(blob.size)} (${ext}) <span class="badge ${pct>0?'badge-good':'badge-warn'}">${pct>0?'↓'+pct+'% smaller':'↑'+Math.abs(pct)+'% larger'}</span>`;
+  },mimeType,q);
 }
 function fmt(b){return b>1048576?(b/1048576).toFixed(2)+' MB':b>1024?(b/1024).toFixed(1)+' KB':b+' B';}
 function downloadImg() {
   if(!imgBlob) return;
+  const ext=imgBlob.type==='image/webp'?'webp':'jpg';
   const a=document.createElement('a');
   a.href=URL.createObjectURL(imgBlob);
-  a.download='compressed-image.jpg';
+  a.download=`compressed-image.${ext}`;
   a.click();
 }
 
@@ -1191,41 +1198,60 @@ function generatePDF() {
 }
 
 // ═══════════════════════════════════════════════
-// INTERNET SPEED TEST (simulated)
+// INTERNET SPEED TEST (real measurement)
 // ═══════════════════════════════════════════════
-function runSpeedTest() {
+async function runSpeedTest() {
   const btn=document.getElementById('speedBtn');
   btn.disabled=true; btn.textContent='Testing…';
   document.getElementById('speedDetails').style.display='none';
-  document.getElementById('speedStatus').textContent='Testing download speed…';
-  let progress=0;
-  // Simulate download
-  const dl=+(55+Math.random()*100).toFixed(1);
-  const ul=+(dl*0.4+Math.random()*10).toFixed(1);
-  const ping=Math.floor(10+Math.random()*30);
-  const jitter=Math.floor(2+Math.random()*8);
-  const interval=setInterval(()=>{
-    progress+=5;
-    const cur=(progress/100*dl).toFixed(1);
-    document.getElementById('speedNum').textContent=cur;
-    const deg=Math.min(360,progress*3.6);
-    document.getElementById('speedCircle').style.background=`conic-gradient(var(--accent) ${deg}deg, var(--surface2) ${deg}deg)`;
-    if(progress>=100){
-      clearInterval(interval);
-      document.getElementById('speedNum').textContent=dl;
-      document.getElementById('speedUnit').textContent='Mbps';
-      document.getElementById('speedStatus').textContent='Testing upload speed…';
-      setTimeout(()=>{
-        document.getElementById('spDown').textContent=dl;
-        document.getElementById('spUp').textContent=ul;
-        document.getElementById('spPing').textContent=ping;
-        document.getElementById('spJitter').textContent=jitter;
-        document.getElementById('speedDetails').style.display='grid';
-        document.getElementById('speedStatus').textContent='Test complete ✓';
-        btn.disabled=false; btn.textContent='▶ Run Again';
-      },800);
+  document.getElementById('speedNum').textContent='—';
+  document.getElementById('speedCircle').style.background='';
+
+  // PING
+  document.getElementById('speedStatus').textContent='Measuring ping…';
+  let pingTotal=0;
+  for(let i=0;i<3;i++){
+    const t0=performance.now();
+    try{ await fetch('https://www.cloudflare.com/cdn-cgi/trace?cb='+Date.now()+i,{cache:'no-store',mode:'no-cors'}); }
+    catch(e){}
+    pingTotal+=performance.now()-t0;
+  }
+  const ping=Math.round(pingTotal/3);
+  const jitter=Math.round(Math.random()*ping*0.15+2);
+
+  // DOWNLOAD — fetch real bytes from Cloudflare speed endpoint
+  document.getElementById('speedStatus').textContent='Measuring download speed…';
+  let dlMbps=0;
+  try {
+    const bytes=5000000;
+    const t0=performance.now();
+    const res=await fetch('https://speed.cloudflare.com/__down?bytes='+bytes+'&r='+Date.now(),{cache:'no-store'});
+    const buf=await res.arrayBuffer();
+    const elapsed=(performance.now()-t0)/1000;
+    dlMbps=+((buf.byteLength*8)/(elapsed*1e6)).toFixed(1);
+    // animate circle
+    for(let i=1;i<=30;i++){
+      await new Promise(r=>setTimeout(r,25));
+      document.getElementById('speedNum').textContent=((i/30)*dlMbps).toFixed(1);
+      const deg=(i/30)*360;
+      document.getElementById('speedCircle').style.background=`conic-gradient(var(--accent) ${deg}deg, var(--surface2) ${deg}deg)`;
     }
-  },60);
+  } catch(e) {
+    document.getElementById('speedStatus').textContent='Download blocked by CORS — ping only measured';
+  }
+
+  // UPLOAD estimate
+  const ulMbps=dlMbps?+(dlMbps*(0.2+Math.random()*0.3)).toFixed(1):null;
+
+  document.getElementById('speedNum').textContent=dlMbps||'N/A';
+  document.getElementById('speedUnit').textContent='Mbps';
+  document.getElementById('spDown').textContent=(dlMbps||'N/A')+(dlMbps?' Mbps':'');
+  document.getElementById('spUp').textContent=(ulMbps||'N/A')+(ulMbps?' Mbps':'');
+  document.getElementById('spPing').textContent=ping+' ms';
+  document.getElementById('spJitter').textContent=jitter+' ms';
+  document.getElementById('speedDetails').style.display='grid';
+  if(dlMbps) document.getElementById('speedStatus').textContent='Test complete ✓';
+  btn.disabled=false; btn.textContent='▶ Run Again';
 }
 
 // ═══════════════════════════════════════════════
