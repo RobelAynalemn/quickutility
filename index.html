@@ -33,11 +33,11 @@
   "@type": "WebSite",
   "name": "QuickUtility",
   "alternateName": "Quick Utility Tools",
-  "url": "https://www.quickutility.com/",
+  "url": "https://www.quickutility.me/",
   "description": "Free online tools including calculators, converters, generators, and utilities for everyday use.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.quickutility.com/?search={search_term_string}",
+    "target": "https://www.quickutility.me/?search={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -47,7 +47,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "QuickUtility",
-  "url": "https://www.quickutility.com/",
+  "url": "https://www.quickutility.me/",
   "description": "Free online utility tools for everyone",
   "sameAs": []
 }
@@ -346,7 +346,6 @@
     transition: all .2s; color: var(--text-muted);
   }
   .file-drop:hover { border-color: var(--accent); color: var(--text); }
-  .file-drop input { display: none; }
   .upload-icon { font-size: 2.5rem; margin-bottom: .5rem; }
   .stats-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -719,12 +718,12 @@ function getToolHTML(id) {
 
     // ── IMAGE COMPRESSOR ─────────────────────────
     compress: `<div class="tool-panel active" id="tool-compress">
-      <label class="file-drop" onclick="document.getElementById('imgFile').click()">
+      <div class="file-drop" id="fileDrop" onclick="document.getElementById('imgFile').click()">
         <div class="upload-icon">🖼️</div>
         <p>Drop image here or <strong>click to upload</strong></p>
         <small>PNG, JPG, WEBP supported</small>
-        <input type="file" id="imgFile" accept="image/*" onchange="loadImage(this)">
-      </label>
+      </div>
+      <input type="file" id="imgFile" accept="image/*" style="display:none" onchange="loadImage(this)">
       <div id="imgInfo" style="display:none">
         <div class="field" style="margin-top:1rem">
           <label>Quality: <strong id="qualVal">80</strong>%</label>
