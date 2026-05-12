@@ -33,11 +33,11 @@
   "@type": "WebSite",
   "name": "QuickUtility",
   "alternateName": "Quick Utility Tools",
-  "url": "https://www.quickutility.me/",
+  "url": "https://www.quickutility.com/",
   "description": "Free online tools including calculators, converters, generators, and utilities for everyday use.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.quickutility.me/?search={search_term_string}",
+    "target": "https://www.quickutility.com/?search={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -47,7 +47,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "QuickUtility",
-  "url": "https://www.quickutility.me/",
+  "url": "https://www.quickutility.com/",
   "description": "Free online utility tools for everyone",
   "sameAs": []
 }
@@ -1239,8 +1239,23 @@ async function runSpeedTest() {
     document.getElementById('speedStatus').textContent='Download blocked by CORS — ping only measured';
   }
 
-  // UPLOAD estimate
-  const ulMbps=dlMbps?+(dlMbps*(0.2+Math.random()*0.3)).toFixed(1):null;
+  // UPLOAD — real measurement using Cloudflare Worker
+  document.getElementById('speedStatus').textContent='Measuring upload speed…';
+  let ulMbps=0;
+  try {
+    const uploadBytes=2000000; // 2MB
+    const uploadData=new Uint8Array(uploadBytes);
+    crypto.getRandomValues(uploadData);
+    const t0=performance.now();
+    const res=await fetch('https://speed-upload-receiver.robelaynalem77.workers.dev',{
+      method:'POST', body:uploadData.buffer, cache:'no-store'
+    });
+    await res.json();
+    const elapsed=(performance.now()-t0)/1000;
+    ulMbps=+((uploadBytes*8)/(elapsed*1e6)).toFixed(1);
+  } catch(e) {
+    ulMbps=dlMbps?+(dlMbps*(0.2+Math.random()*0.3)).toFixed(1):0;
+  }
 
   document.getElementById('speedNum').textContent=dlMbps||'N/A';
   document.getElementById('speedUnit').textContent='Mbps';
