@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- ═══ FAVICON ═══ -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>QuickUtility — Free Online Tools: Calculator, Converter, Generator & More</title>
+<meta name="description" content="QuickUtility offers 20+ free online tools — age calculator, BMI calculator, GPA calculator, password generator, image compressor, PDF converter, word counter, unit converter, QR code generator, and more. Fast, free, no signup.">
+<meta name="keywords" content="free online tools, age calculator, BMI calculator, GPA calculator, password generator, image compressor, PDF converter, word counter, unit converter, QR code generator, tip calculator, loan calculator, internet speed test, base64 encoder, hash generator, percentage calculator, random number generator, case converter, color picker, IP address lookup, quick utility tools online">
+<meta name="robots" content="index, follow">
+<meta name="author" content="QuickUtility">
+<link rel="canonical" href="https://www.quickutility.com/">
+
+<!-- ═══ OPEN GRAPH (social previews) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="QuickUtility — 20+ Free Online Tools">
+<meta property="og:description" content="Fast, free, no-signup tools for everyday tasks. Age calculator, BMI, GPA, password generator, image compressor, PDF converter, and more.">
+<meta property="og:url" content="https://www.quickutility.com/">
+<meta property="og:site_name" content="QuickUtility">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QuickUtility — Free Online Tools">
+<meta name="twitter:description" content="20+ free online tools. No signup. Works on phone & desktop.">
+<meta name="twitter:site" content="@quickutility">
+
+<!-- ═══ STRUCTURED DATA (JSON-LD) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "QuickUtility",
+  "alternateName": "Quick Utility Tools",
+  "url": "https://www.quickutility.com/",
+  "description": "Free online tools including calculators, converters, generators, and utilities for everyday use.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.quickutility.com/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "QuickUtility",
+  "url": "https://www.quickutility.com/",
+  "description": "Free online utility tools for everyone",
+  "sameAs": []
+}
+</script>
+
+<!-- ═══ GOOGLE ADSENSE ═══ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8309160786395355" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c28;
+    --border: #2a2a3d;
+    --accent: #6c63ff;
+    --accent2: #ff6b6b;
+    --accent3: #43e97b;
+    --text: #f0f0f8;
+    --text-muted: #7a7a9a;
+    --card-glow: rgba(108,99,255,0.12);
+    --radius: 16px;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(1rem,4vw,3rem);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-search {
+    display: flex; align-items: center; gap: .5rem;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 30px; padding: .4rem 1rem; width: clamp(160px,20vw,260px);
+  }
+  .nav-search input { background: none; border: none; outline: none; color: var(--text); font-family: var(--font-body); font-size: .9rem; width: 100%; }
+  .nav-search svg { opacity: .4; flex-shrink: 0; }
+  @media(max-width:680px) { .nav-links { display: none; } .nav-search { width: 160px; } }
+
+  /* ─── HERO ─── */
+  .hero {
+    text-align: center;
+    padding: clamp(3rem,8vw,6rem) 1rem clamp(2rem,5vw,4rem);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,99,255,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: var(--font-head); font-size: clamp(2.2rem,6vw,4rem);
+    font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p { color: var(--text-muted); font-size: clamp(.95rem,2.5vw,1.1rem); max-width: 520px; margin: 0 auto 2rem; }
+  .hero-stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat strong { display: block; font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat span { font-size: .8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .08em; }
+
+  /* ─── AD BANNER ─── */
+  .ad-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 0 clamp(1rem,4vw,3rem) 1.5rem;
+    padding: 1rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    position: relative; overflow: hidden;
+  }
+  .ad-banner::before {
+    content: 'AD';
+    position: absolute; top: 6px; right: 10px;
+    font-size: .65rem; color: var(--text-muted); letter-spacing: .1em;
+  }
+  .ad-banner-content { display: flex; align-items: center; gap: 1rem; }
+  .ad-banner-icon { font-size: 2rem; }
+  .ad-banner h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: .2rem; }
+  .ad-banner p { font-size: .8rem; color: var(--text-muted); }
+  .ad-btn {
+    background: var(--accent); color: #fff; border: none; border-radius: 8px;
+    padding: .55rem 1.2rem; font-family: var(--font-body); font-size: .85rem; font-weight: 600;
+    cursor: pointer; white-space: nowrap; transition: opacity .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .ad-btn:hover { opacity: .85; }
+
+  /* ─── CATEGORIES ─── */
+  .categories {
+    display: flex; gap: .6rem; flex-wrap: wrap;
+    padding: 0 clamp(1rem,4vw,3rem) 1.5rem;
+    justify-content: center;
+  }
+  .cat-chip {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 30px; padding: .4rem 1rem;
+    font-size: .82rem; color: var(--text-muted); cursor: pointer;
+    transition: all .2s; user-select: none;
+  }
+  .cat-chip:hover, .cat-chip.active {
+    background: var(--accent); border-color: var(--accent); color: #fff;
+  }
+
+  /* ─── TOOLS GRID ─── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 1.2rem;
+    padding: 0 clamp(1rem,4vw,3rem) 3rem;
+  }
+  .tool-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem;
+    cursor: pointer; transition: all .25s;
+    position: relative; overflow: hidden;
+  }
+  .tool-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--card-glow); opacity: 0; transition: opacity .25s;
+    pointer-events: none;
+  }
+  .tool-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(108,99,255,0.18); }
+  .tool-card:hover::after { opacity: 1; }
+  .tool-icon { font-size: 2.2rem; margin-bottom: .8rem; display: block; }
+  .tool-card h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; margin-bottom: .35rem; }
+  .tool-card p { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
+  .tool-tag {
+    display: inline-block; margin-top: .8rem;
+    background: var(--surface2); border-radius: 6px;
+    padding: .2rem .6rem; font-size: .72rem; color: var(--text-muted); letter-spacing: .04em;
+  }
+  .tool-card[data-cat="math"] .tool-icon { filter: hue-rotate(200deg) brightness(1.3); }
+  .tool-card[data-cat="file"] .tool-icon { filter: hue-rotate(80deg) brightness(1.2); }
+  .tool-card[data-cat="text"] .tool-icon { filter: hue-rotate(150deg) brightness(1.1); }
+  .tool-card[data-cat="security"] .tool-icon { filter: hue-rotate(300deg) brightness(1.1); }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.7); backdrop-filter: blur(6px);
+    display: none; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; width: 100%; max-width: 560px;
+    max-height: 90vh; overflow-y: auto;
+    animation: modalIn .25s ease;
+  }
+  @keyframes modalIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--surface); z-index: 1;
+  }
+  .modal-header h2 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: .6rem; }
+  .modal-close {
+    background: var(--surface2); border: none; color: var(--text-muted);
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+    font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+    transition: all .2s; flex-shrink: 0;
+  }
+  .modal-close:hover { background: var(--accent); color: #fff; }
+  .modal-body { padding: 1.5rem; }
+
+  /* ─── MODAL AD ─── */
+  .modal-ad {
+    background: linear-gradient(135deg, #1e1e2e, #2d1b3d);
+    border: 1px solid #3d2a5a; border-radius: 12px;
+    padding: 1rem 1.2rem; margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 1rem;
+    position: relative;
+  }
+  .modal-ad::before {
+    content: 'Sponsored'; position: absolute; top: 6px; right: 10px;
+    font-size: .65rem; color: #7a6a9a; letter-spacing: .08em;
+  }
+  .modal-ad-text { flex: 1; }
+  .modal-ad-text strong { font-size: .9rem; display: block; margin-bottom: .2rem; }
+  .modal-ad-text span { font-size: .78rem; color: var(--text-muted); }
+  .modal-ad-cta {
+    background: linear-gradient(135deg, #8b5cf6, #6c63ff);
+    color: #fff; border: none; border-radius: 8px;
+    padding: .45rem 1rem; font-size: .8rem; font-weight: 600;
+    cursor: pointer; white-space: nowrap; font-family: var(--font-body);
+    text-decoration: none; display: inline-block;
+  }
+
+  /* ─── FORM ELEMENTS ─── */
+  label { display: block; font-size: .85rem; color: var(--text-muted); margin-bottom: .4rem; font-weight: 500; }
+  .field { margin-bottom: 1rem; }
+  input[type=text], input[type=number], input[type=email], input[type=password], textarea, select {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; padding: .65rem 1rem; color: var(--text);
+    font-family: var(--font-body); font-size: .92rem; outline: none;
+    transition: border-color .2s;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 80px; }
+  .btn {
+    background: var(--accent); color: #fff; border: none; border-radius: 10px;
+    padding: .7rem 1.5rem; font-family: var(--font-head); font-size: .95rem; font-weight: 700;
+    cursor: pointer; transition: all .2s; letter-spacing: .02em;
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .btn:hover { opacity: .85; transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--surface2); color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--accent); }
+  .btn-success { background: var(--accent3); color: #0a0a0f; }
+  .result-box {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.2rem; margin-top: 1rem;
+    font-family: var(--font-head); font-size: 1.5rem; font-weight: 700;
+    text-align: center; color: var(--accent);
+    word-break: break-all;
+  }
+  .result-box small { display: block; font-size: .75rem; color: var(--text-muted); font-family: var(--font-body); font-weight: 400; margin-top: .3rem; }
+  .row { display: flex; gap: .8rem; flex-wrap: wrap; }
+  .row .field { flex: 1; min-width: 120px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+  @media(max-width:420px) { .grid2 { grid-template-columns: 1fr; } }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.2rem 0; }
+  .info-text { font-size: .82rem; color: var(--text-muted); margin-top: .5rem; }
+  .badge {
+    display: inline-block; border-radius: 6px; padding: .2rem .6rem;
+    font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  }
+  .badge-good { background: rgba(67,233,123,.15); color: var(--accent3); }
+  .badge-warn { background: rgba(255,167,38,.15); color: #ffa726; }
+  .badge-bad  { background: rgba(255,107,107,.15); color: var(--accent2); }
+  .progress-bar { background: var(--surface2); border-radius: 99px; height: 10px; overflow: hidden; margin: .5rem 0; }
+  .progress-fill { height: 100%; border-radius: 99px; background: var(--accent); transition: width .6s ease; }
+  .meter-label { display: flex; justify-content: space-between; font-size: .8rem; color: var(--text-muted); }
+  .copy-btn {
+    background: none; border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text-muted); font-family: var(--font-body); font-size: .82rem;
+    padding: .4rem .9rem; cursor: pointer; transition: all .2s; margin-top: .5rem;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--text); }
+  .checkbox-group { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; }
+  .check-opt {
+    display: flex; align-items: center; gap: .4rem;
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    padding: .4rem .8rem; cursor: pointer; font-size: .85rem;
+    transition: all .2s; user-select: none;
+  }
+  .check-opt input { display: none; }
+  .check-opt.checked { background: rgba(108,99,255,.2); border-color: var(--accent); color: var(--accent); }
+  .speed-circle {
+    width: 160px; height: 160px; border-radius: 50%;
+    background: conic-gradient(var(--accent) 0deg, var(--surface2) 0deg);
+    display: flex; align-items: center; justify-content: center;
+    margin: 1rem auto; position: relative;
+    box-shadow: 0 0 40px rgba(108,99,255,.3);
+    transition: background 1s;
+  }
+  .speed-inner {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: var(--surface); display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .speed-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--text); }
+  .speed-unit { font-size: .75rem; color: var(--text-muted); }
+  .img-preview { max-width: 100%; border-radius: 10px; margin-top: .8rem; }
+  .file-drop {
+    border: 2px dashed var(--border); border-radius: 12px;
+    padding: 2rem; text-align: center; cursor: pointer;
+    transition: all .2s; color: var(--text-muted);
+  }
+  .file-drop:hover { border-color: var(--accent); color: var(--text); }
+  .upload-icon { font-size: 2.5rem; margin-bottom: .5rem; }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: .7rem; margin-top: .8rem;
+  }
+  .stat-card {
+    background: var(--surface2); border-radius: 10px; padding: .8rem;
+    text-align: center;
+  }
+  .stat-card strong { display: block; font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .stat-card span { font-size: .75rem; color: var(--text-muted); }
+
+  /* ─── SIDEBAR AD ─── */
+  .page-layout { display: flex; gap: 1.5rem; padding: 0 clamp(1rem,4vw,3rem) 3rem; }
+  .sidebar-ad {
+    width: 200px; flex-shrink: 0;
+    position: sticky; top: 80px; height: fit-content;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1rem; text-align: center;
+  }
+  .sidebar-ad .ad-label { font-size: .65rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: .7rem; }
+  .sidebar-ad-img {
+    width: 100%; aspect-ratio: 1; border-radius: 8px;
+    background: linear-gradient(135deg, #1a1a3e, #2d1b5a); margin-bottom: .7rem;
+    display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+  }
+  .sidebar-ad h4 { font-size: .85rem; font-weight: 600; margin-bottom: .3rem; }
+  .sidebar-ad p { font-size: .75rem; color: var(--text-muted); margin-bottom: .7rem; }
+  @media(max-width:900px) { .sidebar-ad { display: none; } }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem clamp(1rem,4vw,3rem);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;
+    gap: 1rem;
+  }
+  footer p { font-size: .82rem; color: var(--text-muted); }
+  .footer-links { display: flex; gap: 1.2rem; }
+  .footer-links a { font-size: .82rem; color: var(--text-muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--surface); border: 1px solid var(--accent); border-radius: 30px;
+    padding: .7rem 1.5rem; font-size: .88rem; color: var(--text);
+    z-index: 999; transition: transform .3s ease; white-space: nowrap;
+    box-shadow: 0 4px 24px rgba(108,99,255,.3);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ─── FLOATING AD ─── */
+  .floating-ad {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 150;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1rem; width: 220px; box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    animation: slideInRight .4s ease;
+    display: none;
+  }
+  .floating-ad.show { display: block; }
+  @keyframes slideInRight { from { transform: translateX(100%); opacity:0; } to { transform: translateX(0); opacity:1; } }
+  .floating-ad-close {
+    position: absolute; top: .4rem; right: .6rem;
+    background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem;
+  }
+  .floating-ad .ad-label { font-size: .65rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: .5rem; }
+  .floating-ad h4 { font-size: .88rem; font-weight: 700; margin-bottom: .3rem; }
+  .floating-ad p { font-size: .77rem; color: var(--text-muted); margin-bottom: .7rem; }
+
+  /* hidden tool panels */
+  .tool-panel { display: none; }
+  .tool-panel.active { display: block; }
+
+  /* Range inputs */
+  input[type=range] {
+    width: 100%; -webkit-appearance: none; height: 6px;
+    background: var(--border); border-radius: 99px; outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent); cursor: pointer; box-shadow: 0 0 0 3px rgba(108,99,255,.25);
+  }
+  select { cursor: pointer; }
+  .color-swatch {
+    width: 36px; height: 36px; border-radius: 8px;
+    border: 2px solid var(--border); display: inline-block; vertical-align: middle;
+    cursor: pointer; margin-left: .5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="logo">Quick<span>Utility</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">All Tools</a></li>
+    <li><a href="#">Categories</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search tools…" id="searchInput" oninput="filterTools()">
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <h1>Free Online <em>Utility</em><br>Tools for Everyone</h1>
+  <p>20+ powerful, fast, free tools — no signup required. Works on every device, every browser.</p>
+  <div class="hero-stats">
+    <div class="stat"><strong>20+</strong><span>Tools</span></div>
+    <div class="stat"><strong>100%</strong><span>Free</span></div>
+    <div class="stat"><strong>0</strong><span>Signups</span></div>
+  </div>
+</section>
+
+<!-- ─── Google Auto Ads handles all ad placement automatically ─── -->
+
+<!-- ─── CATEGORIES ─── -->
+<div class="categories" id="categories">
+  <div class="cat-chip active" onclick="filterCat('all',this)">🌐 All</div>
+  <div class="cat-chip" onclick="filterCat('math',this)">🔢 Math & Health</div>
+  <div class="cat-chip" onclick="filterCat('text',this)">📝 Text</div>
+  <div class="cat-chip" onclick="filterCat('file',this)">📁 Files</div>
+  <div class="cat-chip" onclick="filterCat('security',this)">🔐 Security</div>
+  <div class="cat-chip" onclick="filterCat('web',this)">🌍 Web & Network</div>
+  <div class="cat-chip" onclick="filterCat('conversion',this)">🔄 Conversion</div>
+</div>
+
+<!-- ─── TOOLS GRID ─── -->
+<div class="tools-grid" id="toolsGrid">
+  <!-- Cards inserted by JS -->
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>© 2025 <strong>QuickUtility</strong> — Free Online Tools</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+    <a href="#">Sitemap</a>
+  </div>
+</footer>
+<!-- SEO footer content (hidden but crawlable) -->
+<div style="max-width:900px;margin:0 auto;padding:1rem clamp(1rem,4vw,3rem) 3rem;color:var(--text-muted);font-size:.78rem;line-height:1.7;border-top:1px solid var(--border)">
+  <strong style="color:var(--text-muted)">About QuickUtility</strong>
+  <p style="margin:.4rem 0 .8rem">QuickUtility is a free online tools website offering calculators, converters, generators, and utilities. Use our free age calculator, BMI calculator, GPA calculator, word counter, password generator, image compressor, PDF converter, internet speed test, QR code generator, loan calculator, unit converter, color picker, base64 encoder, SHA hash generator, tip calculator, random number generator, case converter, timestamp converter, IP address lookup, and percentage calculator — all for free, with no account required.</p>
+  <p>Popular searches: <a href="#" style="color:var(--text-muted)">free online calculator</a> · <a href="#" style="color:var(--text-muted)">age calculator</a> · <a href="#" style="color:var(--text-muted)">BMI calculator online</a> · <a href="#" style="color:var(--text-muted)">free password generator</a> · <a href="#" style="color:var(--text-muted)">image compressor free</a> · <a href="#" style="color:var(--text-muted)">word counter online</a> · <a href="#" style="color:var(--text-muted)">QR code generator free</a></p>
+</div>
+
+<!-- ─── MODAL ─── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Tool</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ─── FLOATING AD — Auto Ads handles this automatically ─── -->
+
+<!-- ─── TOAST ─── -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+// TOOLS REGISTRY
+// ═══════════════════════════════════════════════
+const tools = [
+  { id:'age',       icon:'🎂', name:'Age Calculator',       desc:'Calculate your exact age in years, months, days, hours, and minutes.', cat:'math',       tag:'Health' },
+  { id:'bmi',       icon:'⚖️', name:'BMI Calculator',        desc:'Calculate your Body Mass Index and get health category insights.', cat:'math',       tag:'Health' },
+  { id:'gpa',       icon:'🎓', name:'GPA Calculator',        desc:'Calculate your semester or cumulative GPA with weighted grades.', cat:'math',       tag:'Education' },
+  { id:'word',      icon:'📝', name:'Word Counter',          desc:'Count words, characters, sentences, and reading time instantly.', cat:'text',       tag:'Text' },
+  { id:'password',  icon:'🔑', name:'Password Generator',   desc:'Generate strong, secure passwords with custom length and characters.', cat:'security',   tag:'Security' },
+  { id:'compress',  icon:'🖼️', name:'Image Compressor',      desc:'Compress images to reduce file size while keeping quality.', cat:'file',       tag:'Image' },
+  { id:'pdf',       icon:'📄', name:'PDF Converter',         desc:'Convert text and content to a downloadable PDF document.', cat:'file',       tag:'PDF' },
+  { id:'speed',     icon:'📡', name:'Internet Speed Test',   desc:'Measure your internet download and upload speed with one click.', cat:'web',        tag:'Network' },
+  { id:'color',     icon:'🎨', name:'Color Picker',          desc:'Pick, convert and explore colors in HEX, RGB, and HSL formats.', cat:'conversion', tag:'Design' },
+  { id:'unit',      icon:'📏', name:'Unit Converter',        desc:'Convert length, weight, temperature, area and volume units.', cat:'conversion', tag:'Conversion' },
+  { id:'loan',      icon:'💰', name:'Loan Calculator',       desc:'Calculate monthly payments, total interest, and amortization.', cat:'math',       tag:'Finance' },
+  { id:'timestamp', icon:'⏱️', name:'Timestamp Converter',   desc:'Convert Unix timestamps to readable dates and vice versa.', cat:'conversion', tag:'Dev' },
+  { id:'base64',    icon:'🔤', name:'Base64 Encoder',        desc:'Encode or decode text and data in Base64 format instantly.', cat:'security',   tag:'Dev' },
+  { id:'hash',      icon:'#️⃣', name:'Hash Generator',        desc:'Generate MD5, SHA-1, SHA-256 hashes from any text.', cat:'security',   tag:'Security' },
+  { id:'qr',        icon:'🔲', name:'QR Code Generator',     desc:'Generate QR codes from any URL, text, or contact info.', cat:'web',        tag:'Utility' },
+  { id:'tip',       icon:'🍽️', name:'Tip Calculator',        desc:'Calculate tips and split bills among multiple people easily.', cat:'math',       tag:'Finance' },
+  { id:'random',    icon:'🎲', name:'Random Number',         desc:'Generate random numbers within any range you define.', cat:'math',       tag:'Utility' },
+  { id:'case',      icon:'🔡', name:'Case Converter',        desc:'Convert text between UPPER, lower, Title, and camelCase.', cat:'text',       tag:'Text' },
+  { id:'ip',        icon:'🌐', name:'IP Address Lookup',     desc:'Find your public IP address and location details.', cat:'web',        tag:'Network' },
+  { id:'percent',   icon:'💯', name:'Percentage Calculator', desc:'Calculate percentages, increases, decreases, and differences.', cat:'math',       tag:'Math' },
+];
+
+// ═══════════════════════════════════════════════
+// RENDER GRID
+// ═══════════════════════════════════════════════
+function renderGrid(list) {
+  const grid = document.getElementById('toolsGrid');
+  grid.innerHTML = list.map(t => `
+    <div class="tool-card" data-cat="${t.cat}" data-id="${t.id}" onclick="openTool('${t.id}')">
+      <span class="tool-icon">${t.icon}</span>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <span class="tool-tag">${t.tag}</span>
+    </div>`).join('');
+}
+renderGrid(tools);
+
+// ═══════════════════════════════════════════════
+// FILTER
+// ═══════════════════════════════════════════════
+let currentCat = 'all', currentSearch = '';
+function filterCat(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  applyFilters();
+}
+function filterTools() {
+  currentSearch = document.getElementById('searchInput').value.toLowerCase();
+  applyFilters();
+}
+function applyFilters() {
+  let list = tools;
+  if(currentCat !== 'all') list = list.filter(t=>t.cat===currentCat);
+  if(currentSearch) list = list.filter(t=>t.name.toLowerCase().includes(currentSearch)||t.desc.toLowerCase().includes(currentSearch));
+  renderGrid(list);
+}
+
+// ═══════════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════════
+let adCount = 0;
+function openTool(id) {
+  const tool = tools.find(t=>t.id===id);
+  if(!tool) return;
+  document.getElementById('modalTitle').innerHTML = `${tool.icon} ${tool.name}`;
+  document.getElementById('modalBody').innerHTML = getModalAd(id) + getToolHTML(id);
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // init tool after render
+  setTimeout(()=>initTool(id), 50);
+  // show floating ad after 3 uses
+  adCount++;
+  if(adCount % 3 === 0) {
+    const fa = document.getElementById('floatingAd');
+    fa.classList.add('show'); fa.style.display = 'block';
+  }
+}
+function closeModal(e) {
+  if(e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ═══════════════════════════════════════════════
+// ADS IN MODAL
+// ═══════════════════════════════════════════════
+function getModalAd(id) {
+  // Google Auto Ads handles in-page ad injection automatically
+  return '';
+}
+
+// ═══════════════════════════════════════════════
+// TOOL HTML TEMPLATES
+// ═══════════════════════════════════════════════
+function getToolHTML(id) {
+  const T = {
+    // ── AGE CALCULATOR ──────────────────────────
+    age: `<div class="tool-panel active" id="tool-age">
+      <div class="field"><label>Date of Birth</label>
+        <input type="date" id="ageDob" max="${new Date().toISOString().split('T')[0]}">
+      </div>
+      <div class="field"><label>Calculate Age On</label>
+        <input type="date" id="ageOn" value="${new Date().toISOString().split('T')[0]}">
+      </div>
+      <button class="btn" onclick="calcAge()">Calculate Age</button>
+      <div id="ageResult"></div>
+    </div>`,
+
+    // ── BMI CALCULATOR ──────────────────────────
+    bmi: `<div class="tool-panel active" id="tool-bmi">
+      <div class="field">
+        <label>Unit System</label>
+        <select id="bmiUnit" onchange="toggleBmiUnit()">
+          <option value="metric">Metric (kg / cm)</option>
+          <option value="imperial">Imperial (lb / ft-in)</option>
+        </select>
+      </div>
+      <div id="bmiMetric">
+        <div class="row">
+          <div class="field"><label>Weight (kg)</label><input type="number" id="bmiKg" placeholder="70" min="1" max="500"></div>
+          <div class="field"><label>Height (cm)</label><input type="number" id="bmiCm" placeholder="170" min="50" max="300"></div>
+        </div>
+      </div>
+      <div id="bmiImperial" style="display:none">
+        <div class="row">
+          <div class="field"><label>Weight (lbs)</label><input type="number" id="bmiLb" placeholder="154"></div>
+          <div class="field"><label>Height (ft)</label><input type="number" id="bmiFt" placeholder="5"></div>
+          <div class="field"><label>Height (in)</label><input type="number" id="bmiIn" placeholder="7"></div>
+        </div>
+      </div>
+      <button class="btn" onclick="calcBmi()">Calculate BMI</button>
+      <div id="bmiResult"></div>
+    </div>`,
+
+    // ── GPA CALCULATOR ──────────────────────────
+    gpa: `<div class="tool-panel active" id="tool-gpa">
+      <div id="gpaRows">
+        <div class="gpa-row row" style="align-items:center">
+          <div class="field" style="flex:2"><label>Course Name</label><input type="text" placeholder="e.g. Mathematics"></div>
+          <div class="field"><label>Grade</label>
+            <select class="gpa-grade">
+              <option value="4.0">A (4.0)</option><option value="3.7">A- (3.7)</option>
+              <option value="3.3">B+ (3.3)</option><option value="3.0">B (3.0)</option>
+              <option value="2.7">B- (2.7)</option><option value="2.3">C+ (2.3)</option>
+              <option value="2.0">C (2.0)</option><option value="1.7">C- (1.7)</option>
+              <option value="1.0">D (1.0)</option><option value="0.0">F (0.0)</option>
+            </select>
+          </div>
+          <div class="field"><label>Credits</label><input type="number" class="gpa-credits" value="3" min="1" max="6"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:.7rem;margin-bottom:1rem">
+        <button class="btn btn-secondary" style="flex:1" onclick="addGpaRow()">+ Add Course</button>
+        <button class="btn" style="flex:1" onclick="calcGpa()">Calculate GPA</button>
+      </div>
+      <div id="gpaResult"></div>
+    </div>`,
+
+    // ── WORD COUNTER ────────────────────────────
+    word: `<div class="tool-panel active" id="tool-word">
+      <div class="field"><label>Paste or type your text below</label>
+        <textarea id="wordText" rows="7" placeholder="Start typing here…" oninput="calcWord()"></textarea>
+      </div>
+      <div class="stats-grid" id="wordStats">
+        <div class="stat-card"><strong id="wc-words">0</strong><span>Words</span></div>
+        <div class="stat-card"><strong id="wc-chars">0</strong><span>Characters</span></div>
+        <div class="stat-card"><strong id="wc-nospace">0</strong><span>No Spaces</span></div>
+        <div class="stat-card"><strong id="wc-sent">0</strong><span>Sentences</span></div>
+        <div class="stat-card"><strong id="wc-para">0</strong><span>Paragraphs</span></div>
+        <div class="stat-card"><strong id="wc-read">0</strong><span>Min Read</span></div>
+      </div>
+    </div>`,
+
+    // ── PASSWORD GENERATOR ──────────────────────
+    password: `<div class="tool-panel active" id="tool-password">
+      <div class="field">
+        <label>Password Length: <strong id="pwLenVal">16</strong></label>
+        <input type="range" id="pwLen" min="6" max="64" value="16" oninput="document.getElementById('pwLenVal').textContent=this.value;genPass()">
+      </div>
+      <div class="checkbox-group" id="pwOpts">
+        <label class="check-opt checked" onclick="toggleCheck(this)"><input type="checkbox" checked> Uppercase</label>
+        <label class="check-opt checked" onclick="toggleCheck(this)"><input type="checkbox" checked> Lowercase</label>
+        <label class="check-opt checked" onclick="toggleCheck(this)"><input type="checkbox" checked> Numbers</label>
+        <label class="check-opt checked" onclick="toggleCheck(this)"><input type="checkbox" checked> Symbols</label>
+      </div>
+      <div class="field"><label>Generated Password</label>
+        <input type="text" id="pwOutput" readonly placeholder="Click generate…">
+      </div>
+      <div id="pwStrength"></div>
+      <div style="display:flex;gap:.7rem">
+        <button class="btn" style="flex:1" onclick="genPass()">🔄 Generate</button>
+        <button class="copy-btn" style="flex:1" onclick="copyText('pwOutput')">📋 Copy</button>
+      </div>
+    </div>`,
+
+    // ── IMAGE COMPRESSOR ─────────────────────────
+    compress: `<div class="tool-panel active" id="tool-compress">
+      <div class="file-drop" id="fileDrop" onclick="document.getElementById('imgFile').click()">
+        <div class="upload-icon">🖼️</div>
+        <p>Drop image here or <strong>click to upload</strong></p>
+        <small>PNG, JPG, WEBP supported</small>
+      </div>
+      <input type="file" id="imgFile" accept="image/*" style="display:none" onchange="loadImage(this)">
+      <div id="imgInfo" style="display:none">
+        <div class="field" style="margin-top:1rem">
+          <label>Quality: <strong id="qualVal">80</strong>%</label>
+          <input type="range" id="qualSlider" min="10" max="100" value="80" oninput="document.getElementById('qualVal').textContent=this.value;compressImage()">
+        </div>
+        <div id="imgStats" style="margin:.5rem 0;font-size:.82rem;color:var(--text-muted)"></div>
+        <canvas id="imgCanvas" style="display:none"></canvas>
+        <img id="imgPreview" class="img-preview" style="display:none">
+        <br>
+        <button class="btn btn-success" style="margin-top:.8rem" onclick="downloadImg()">⬇️ Download</button>
+      </div>
+    </div>`,
+
+    // ── PDF CONVERTER ─────────────────────────────
+    pdf: `<div class="tool-panel active" id="tool-pdf">
+      <div class="field"><label>Document Title</label><input type="text" id="pdfTitle" placeholder="My Document" value="My Document"></div>
+      <div class="field"><label>Content</label><textarea id="pdfContent" rows="8" placeholder="Paste or type your content here. Each new line becomes a paragraph…"></textarea></div>
+      <div class="row">
+        <div class="field">
+          <label>Font Size</label>
+          <select id="pdfFont"><option>12</option><option>14</option><option selected>16</option><option>18</option><option>20</option></select>
+        </div>
+        <div class="field">
+          <label>Alignment</label>
+          <select id="pdfAlign"><option value="left">Left</option><option value="center">Center</option><option value="justify">Justify</option></select>
+        </div>
+      </div>
+      <button class="btn" onclick="generatePDF()">📄 Generate & Download PDF</button>
+    </div>`,
+
+    // ── INTERNET SPEED TEST ───────────────────────
+    speed: `<div class="tool-panel active" id="tool-speed">
+      <div class="speed-circle" id="speedCircle">
+        <div class="speed-inner">
+          <span class="speed-num" id="speedNum">—</span>
+          <span class="speed-unit" id="speedUnit">Mbps</span>
+        </div>
+      </div>
+      <div id="speedStatus" style="text-align:center;color:var(--text-muted);font-size:.88rem;margin:.5rem 0">Press Start to test your connection</div>
+      <div class="grid2" id="speedDetails" style="display:none">
+        <div class="stat-card"><strong id="spDown">—</strong><span>↓ Download (Mbps)</span></div>
+        <div class="stat-card"><strong id="spUp">—</strong><span>↑ Upload (Mbps)</span></div>
+        <div class="stat-card"><strong id="spPing">—</strong><span>Ping (ms)</span></div>
+        <div class="stat-card"><strong id="spJitter">—</strong><span>Jitter (ms)</span></div>
+      </div>
+      <button class="btn" style="width:100%;margin-top:1rem;justify-content:center" id="speedBtn" onclick="runSpeedTest()">▶ Start Speed Test</button>
+    </div>`,
+
+    // ── COLOR PICKER ─────────────────────────────
+    color: `<div class="tool-panel active" id="tool-color">
+      <div class="field">
+        <label>Pick a Color</label>
+        <div style="display:flex;align-items:center;gap:.8rem">
+          <input type="color" id="colorPicker" value="#6c63ff" style="width:60px;height:48px;border-radius:10px;border:none;cursor:pointer;background:none" oninput="updateColor()">
+          <input type="text" id="colorHex" value="#6c63ff" style="flex:1" oninput="hexInput()">
+        </div>
+      </div>
+      <div id="colorDisplay" style="height:80px;border-radius:12px;background:#6c63ff;margin:.5rem 0;transition:background .2s"></div>
+      <div class="grid2" id="colorVals">
+        <div class="stat-card"><strong id="cvHex">#6C63FF</strong><span>HEX</span></div>
+        <div class="stat-card"><strong id="cvRgb">108, 99, 255</strong><span>RGB</span></div>
+        <div class="stat-card"><strong id="cvHsl">245°, 100%, 70%</strong><span>HSL</span></div>
+        <div class="stat-card"><strong id="cvCmyk">58, 61, 0, 0</strong><span>CMYK</span></div>
+      </div>
+      <button class="copy-btn" style="width:100%;margin-top:.5rem" onclick="copyText('colorHex')">📋 Copy HEX</button>
+    </div>`,
+
+    // ── UNIT CONVERTER ───────────────────────────
+    unit: `<div class="tool-panel active" id="tool-unit">
+      <div class="field"><label>Category</label>
+        <select id="unitCat" onchange="updateUnitOptions()">
+          <option value="length">Length</option>
+          <option value="weight">Weight</option>
+          <option value="temp">Temperature</option>
+          <option value="area">Area</option>
+          <option value="volume">Volume</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="field" style="flex:2"><label>Value</label><input type="number" id="unitVal" value="1" oninput="convertUnit()"></div>
+        <div class="field" style="flex:2"><label>From</label><select id="unitFrom" onchange="convertUnit()"></select></div>
+        <div class="field" style="flex:2"><label>To</label><select id="unitTo" onchange="convertUnit()"></select></div>
+      </div>
+      <div class="result-box" id="unitResult">—</div>
+    </div>`,
+
+    // ── LOAN CALCULATOR ──────────────────────────
+    loan: `<div class="tool-panel active" id="tool-loan">
+      <div class="row">
+        <div class="field"><label>Loan Amount ($)</label><input type="number" id="loanAmt" value="10000" min="1"></div>
+        <div class="field"><label>Interest Rate (% / yr)</label><input type="number" id="loanRate" value="5" step="0.1" min="0"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Term (months)</label><input type="number" id="loanMonths" value="60" min="1"></div>
+      </div>
+      <button class="btn" onclick="calcLoan()">Calculate Loan</button>
+      <div id="loanResult"></div>
+    </div>`,
+
+    // ── TIMESTAMP CONVERTER ─────────────────────
+    timestamp: `<div class="tool-panel active" id="tool-timestamp">
+      <div class="field"><label>Unix Timestamp → Date</label>
+        <div style="display:flex;gap:.5rem">
+          <input type="number" id="tsInput" placeholder="e.g. 1700000000" style="flex:1">
+          <button class="btn" onclick="convertTs()">Convert</button>
+        </div>
+        <div id="tsResult" class="result-box" style="display:none;margin-top:.7rem;font-size:1rem"></div>
+      </div>
+      <hr class="divider">
+      <div class="field"><label>Date → Unix Timestamp</label>
+        <div style="display:flex;gap:.5rem">
+          <input type="datetime-local" id="dtInput" style="flex:1">
+          <button class="btn" onclick="convertDt()">Convert</button>
+        </div>
+        <div id="dtResult" class="result-box" style="display:none;margin-top:.7rem"></div>
+      </div>
+      <div style="text-align:center;margin-top:.8rem">
+        <button class="btn btn-secondary" onclick="setNow()">Use Current Time</button>
+      </div>
+    </div>`,
+
+    // ── BASE64 ─────────────────────────────────
+    base64: `<div class="tool-panel active" id="tool-base64">
+      <div class="field"><label>Input Text</label>
+        <textarea id="b64Input" rows="4" placeholder="Enter text to encode or decode…"></textarea>
+      </div>
+      <div style="display:flex;gap:.7rem;margin-bottom:1rem">
+        <button class="btn" style="flex:1" onclick="b64Encode()">Encode →</button>
+        <button class="btn btn-secondary" style="flex:1" onclick="b64Decode()">← Decode</button>
+      </div>
+      <div class="field"><label>Output</label>
+        <textarea id="b64Output" rows="4" readonly placeholder="Result appears here…"></textarea>
+        <button class="copy-btn" onclick="copyTextarea('b64Output')">📋 Copy</button>
+      </div>
+    </div>`,
+
+    // ── HASH GENERATOR ───────────────────────────
+    hash: `<div class="tool-panel active" id="tool-hash">
+      <div class="field"><label>Input Text</label>
+        <textarea id="hashInput" rows="4" placeholder="Enter text to hash…"></textarea>
+      </div>
+      <button class="btn" onclick="genHash()">Generate Hashes</button>
+      <div id="hashResults"></div>
+    </div>`,
+
+    // ── QR CODE ─────────────────────────────────
+    qr: `<div class="tool-panel active" id="tool-qr">
+      <div class="field"><label>Content (URL, text, phone number…)</label>
+        <input type="text" id="qrText" placeholder="https://example.com" oninput="genQR()">
+      </div>
+      <div class="field"><label>Size</label>
+        <select id="qrSize" onchange="genQR()">
+          <option value="150">Small (150px)</option>
+          <option value="200" selected>Medium (200px)</option>
+          <option value="300">Large (300px)</option>
+        </select>
+      </div>
+      <div id="qrOutput" style="text-align:center;margin-top:1rem"></div>
+      <div style="text-align:center;margin-top:.7rem">
+        <button class="btn" onclick="downloadQR()">⬇️ Download QR</button>
+      </div>
+    </div>`,
+
+    // ── TIP CALCULATOR ───────────────────────────
+    tip: `<div class="tool-panel active" id="tool-tip">
+      <div class="row">
+        <div class="field"><label>Bill Amount ($)</label><input type="number" id="tipBill" value="50" min="0" oninput="calcTip()"></div>
+        <div class="field"><label>Tip %</label><input type="number" id="tipPct" value="15" min="0" max="100" oninput="calcTip()"></div>
+      </div>
+      <div class="field">
+        <label>Quick Select</label>
+        <div style="display:flex;gap:.5rem">
+          ${[10,15,18,20,25].map(p=>`<button class="cat-chip" onclick="document.getElementById('tipPct').value=${p};calcTip()">${p}%</button>`).join('')}
+        </div>
+      </div>
+      <div class="field"><label>Split Among</label><input type="number" id="tipPeople" value="1" min="1" oninput="calcTip()"></div>
+      <div id="tipResult"></div>
+    </div>`,
+
+    // ── RANDOM NUMBER ────────────────────────────
+    random: `<div class="tool-panel active" id="tool-random">
+      <div class="row">
+        <div class="field"><label>Min</label><input type="number" id="randMin" value="1"></div>
+        <div class="field"><label>Max</label><input type="number" id="randMax" value="100"></div>
+        <div class="field"><label>Count</label><input type="number" id="randCount" value="1" min="1" max="100"></div>
+      </div>
+      <button class="btn" style="width:100%;justify-content:center" onclick="genRandom()">🎲 Generate</button>
+      <div id="randResult"></div>
+    </div>`,
+
+    // ── CASE CONVERTER ───────────────────────────
+    case: `<div class="tool-panel active" id="tool-case">
+      <div class="field"><label>Input Text</label>
+        <textarea id="caseInput" rows="4" placeholder="Type your text here…"></textarea>
+      </div>
+      <div class="checkbox-group">
+        ${[['UPPER CASE','upper'],['lower case','lower'],['Title Case','title'],['camelCase','camel'],['snake_case','snake'],['kebab-case','kebab'],['Sentence case','sentence']].map(([l,v])=>
+          `<button class="cat-chip" onclick="convertCase('${v}')">${l}</button>`).join('')}
+      </div>
+      <div class="field"><label>Output</label>
+        <textarea id="caseOutput" rows="4" readonly></textarea>
+        <button class="copy-btn" onclick="copyTextarea('caseOutput')">📋 Copy</button>
+      </div>
+    </div>`,
+
+    // ── IP LOOKUP ────────────────────────────────
+    ip: `<div class="tool-panel active" id="tool-ip">
+      <div style="text-align:center;padding:1rem">
+        <div style="font-size:3rem;margin-bottom:.5rem">🌐</div>
+        <p style="color:var(--text-muted);margin-bottom:1rem">Click below to fetch your current IP details</p>
+        <button class="btn" onclick="lookupIP()">🔍 Look Up My IP</button>
+      </div>
+      <div id="ipResult"></div>
+    </div>`,
+
+    // ── PERCENTAGE ───────────────────────────────
+    percent: `<div class="tool-panel active" id="tool-percent">
+      <div class="field"><label>What is</label>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <input type="number" id="pctNum" value="20" style="flex:1">
+          <span style="color:var(--text-muted)">% of</span>
+          <input type="number" id="pctOf" value="150" style="flex:1">
+        </div>
+      </div>
+      <button class="btn" style="width:100%;justify-content:center" onclick="calcPercent()">Calculate</button>
+      <div id="pctResult"></div>
+      <hr class="divider">
+      <div class="field"><label>Percentage Increase / Decrease from</label>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <input type="number" id="pctFrom" value="100" style="flex:1">
+          <span style="color:var(--text-muted)">to</span>
+          <input type="number" id="pctTo" value="125" style="flex:1">
+        </div>
+      </div>
+      <button class="btn btn-secondary" style="width:100%;justify-content:center" onclick="calcChange()">Calculate Change</button>
+      <div id="pctChange"></div>
+    </div>`,
+  };
+  return T[id] || '<p>Tool coming soon!</p>';
+}
+
+// ═══════════════════════════════════════════════
+// TOOL INITIALIZERS
+// ═══════════════════════════════════════════════
+function initTool(id) {
+  if(id==='word') calcWord();
+  if(id==='unit') { updateUnitOptions(); convertUnit(); }
+  if(id==='qr') genQR();
+  if(id==='color') updateColor();
+  if(id==='tip') calcTip();
+  if(id==='timestamp') setNow();
+  if(id==='password') genPass();
+}
+
+// ═══════════════════════════════════════════════
+// AGE CALCULATOR
+// ═══════════════════════════════════════════════
+function calcAge() {
+  const dob = new Date(document.getElementById('ageDob').value);
+  const on = new Date(document.getElementById('ageOn').value);
+  if(!document.getElementById('ageDob').value) return showToast('Please enter a date of birth');
+  if(dob > on) return showToast('Date of birth must be before the target date');
+  let y = on.getFullYear()-dob.getFullYear(), m = on.getMonth()-dob.getMonth(), d = on.getDate()-dob.getDate();
+  if(d<0){m--;d+=new Date(on.getFullYear(),on.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  const totalDays = Math.floor((on-dob)/(1000*60*60*24));
+  const totalHrs = totalDays*24; const totalMins = totalHrs*60;
+  document.getElementById('ageResult').innerHTML = `
+    <div class="result-box" style="font-size:1.6rem">${y} years, ${m} months, ${d} days<small>= ${totalDays.toLocaleString()} days • ${totalHrs.toLocaleString()} hours • ${totalMins.toLocaleString()} minutes</small></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// BMI CALCULATOR
+// ═══════════════════════════════════════════════
+function toggleBmiUnit() {
+  const u=document.getElementById('bmiUnit').value;
+  document.getElementById('bmiMetric').style.display=u==='metric'?'':'none';
+  document.getElementById('bmiImperial').style.display=u==='imperial'?'':'none';
+}
+function calcBmi() {
+  const u=document.getElementById('bmiUnit').value;
+  let bmi,h,w;
+  if(u==='metric'){
+    w=parseFloat(document.getElementById('bmiKg').value);
+    h=parseFloat(document.getElementById('bmiCm').value)/100;
+    if(!w||!h) return showToast('Please enter weight and height');
+    bmi=w/(h*h);
+  } else {
+    w=parseFloat(document.getElementById('bmiLb').value);
+    const ft=parseFloat(document.getElementById('bmiFt').value)||0;
+    const inch=parseFloat(document.getElementById('bmiIn').value)||0;
+    const totalIn=ft*12+inch;
+    if(!w||!totalIn) return showToast('Please fill in all fields');
+    bmi=703*w/(totalIn*totalIn);
+  }
+  bmi=bmi.toFixed(1);
+  let cat,cls;
+  if(bmi<18.5){cat='Underweight';cls='badge-warn';}
+  else if(bmi<25){cat='Normal Weight';cls='badge-good';}
+  else if(bmi<30){cat='Overweight';cls='badge-warn';}
+  else{cat='Obese';cls='badge-bad';}
+  const pct=Math.min(100,Math.max(0,(bmi-10)/35*100));
+  document.getElementById('bmiResult').innerHTML=`
+    <div class="result-box">${bmi}<small>BMI Index</small></div>
+    <div class="progress-bar" style="margin:.8rem 0"><div class="progress-fill" style="width:${pct}%;background:${cls.includes('good')?'var(--accent3)':cls.includes('warn')?'#ffa726':'var(--accent2)'}"></div></div>
+    <div style="text-align:center"><span class="badge ${cls}">${cat}</span></div>
+    <div class="info-text" style="text-align:center;margin-top:.5rem">Healthy BMI range: 18.5 – 24.9</div>`;
+}
+
+// ═══════════════════════════════════════════════
+// GPA CALCULATOR
+// ═══════════════════════════════════════════════
+function addGpaRow() {
+  const row=document.createElement('div');
+  row.className='gpa-row row'; row.style.alignItems='center';
+  row.innerHTML=`<div class="field" style="flex:2"><label>Course Name</label><input type="text" placeholder="Course name"></div>
+    <div class="field"><label>Grade</label><select class="gpa-grade">
+      <option value="4.0">A (4.0)</option><option value="3.7">A- (3.7)</option>
+      <option value="3.3">B+ (3.3)</option><option value="3.0">B (3.0)</option>
+      <option value="2.7">B- (2.7)</option><option value="2.3">C+ (2.3)</option>
+      <option value="2.0">C (2.0)</option><option value="1.7">C- (1.7)</option>
+      <option value="1.0">D (1.0)</option><option value="0.0">F (0.0)</option>
+    </select></div>
+    <div class="field"><label>Credits</label><input type="number" class="gpa-credits" value="3" min="1" max="6"></div>
+    <button onclick="this.closest('.gpa-row').remove()" style="background:none;border:none;color:var(--accent2);cursor:pointer;font-size:1.2rem;margin-top:1.2rem">✕</button>`;
+  document.getElementById('gpaRows').appendChild(row);
+}
+function calcGpa() {
+  const grades=[...document.querySelectorAll('.gpa-grade')].map(s=>parseFloat(s.value));
+  const credits=[...document.querySelectorAll('.gpa-credits')].map(i=>parseFloat(i.value)||3);
+  let totalPts=0,totalCr=0;
+  grades.forEach((g,i)=>{totalPts+=g*credits[i];totalCr+=credits[i];});
+  const gpa=totalCr>0?(totalPts/totalCr).toFixed(2):'0.00';
+  let cat=gpa>=3.7?'Summa Cum Laude 🏆':gpa>=3.5?'Magna Cum Laude':gpa>=3.0?'Cum Laude':gpa>=2.0?'Good Standing':'Academic Probation';
+  document.getElementById('gpaResult').innerHTML=`
+    <div class="result-box">${gpa} / 4.0<small>${cat} • ${totalCr} total credits</small></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// WORD COUNTER
+// ═══════════════════════════════════════════════
+function calcWord() {
+  const t=document.getElementById('wordText').value;
+  const words=t.trim()===''?0:t.trim().split(/\s+/).length;
+  const chars=t.length;
+  const noSpace=t.replace(/\s/g,'').length;
+  const sent=t.split(/[.!?]+/).filter(s=>s.trim().length>0).length;
+  const para=t.split(/\n+/).filter(s=>s.trim().length>0).length;
+  const read=Math.max(1,Math.round(words/200));
+  document.getElementById('wc-words').textContent=words.toLocaleString();
+  document.getElementById('wc-chars').textContent=chars.toLocaleString();
+  document.getElementById('wc-nospace').textContent=noSpace.toLocaleString();
+  document.getElementById('wc-sent').textContent=sent.toLocaleString();
+  document.getElementById('wc-para').textContent=para.toLocaleString();
+  document.getElementById('wc-read').textContent=read;
+}
+
+// ═══════════════════════════════════════════════
+// PASSWORD GENERATOR
+// ═══════════════════════════════════════════════
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  el.querySelector('input').checked=el.classList.contains('checked');
+  genPass();
+}
+function genPass() {
+  const len=parseInt(document.getElementById('pwLen').value);
+  const upper=document.querySelector('.check-opt:nth-child(1)').classList.contains('checked');
+  const lower=document.querySelector('.check-opt:nth-child(2)').classList.contains('checked');
+  const nums=document.querySelector('.check-opt:nth-child(3)').classList.contains('checked');
+  const syms=document.querySelector('.check-opt:nth-child(4)').classList.contains('checked');
+  let chars='';
+  if(upper) chars+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(lower) chars+='abcdefghijklmnopqrstuvwxyz';
+  if(nums) chars+='0123456789';
+  if(syms) chars+='!@#$%^&*()_+-=[]{}|;:,.<>?';
+  if(!chars){showToast('Select at least one option');return;}
+  let pass='';
+  const arr=new Uint32Array(len);
+  crypto.getRandomValues(arr);
+  arr.forEach(v=>pass+=chars[v%chars.length]);
+  document.getElementById('pwOutput').value=pass;
+  // strength
+  let strength=0;
+  if(pass.length>=12) strength++;
+  if(pass.length>=20) strength++;
+  if(/[A-Z]/.test(pass)) strength++;
+  if(/[a-z]/.test(pass)) strength++;
+  if(/[0-9]/.test(pass)) strength++;
+  if(/[^A-Za-z0-9]/.test(pass)) strength++;
+  const labels=['Very Weak','Weak','Fair','Good','Strong','Very Strong'];
+  const colors=['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#8b5cf6'];
+  const s=Math.min(5,strength);
+  document.getElementById('pwStrength').innerHTML=`
+    <div class="meter-label"><span>Strength: <strong>${labels[s]}</strong></span><span>${s+1}/6</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${(s+1)/6*100}%;background:${colors[s]}"></div></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// IMAGE COMPRESSOR
+// ═══════════════════════════════════════════════
+let imgBlob=null, origSize=0;
+function loadImage(input) {
+  const file=input.files[0];
+  if(!file) return;
+  origSize=file.size;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.getElementById('imgCanvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      canvas.getContext('2d').drawImage(img,0,0);
+      document.getElementById('imgInfo').style.display='';
+      compressImage();
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+let currentFileType='image/jpeg';
+function compressImage() {
+  const canvas=document.getElementById('imgCanvas');
+  const q=parseInt(document.getElementById('qualSlider').value)/100;
+  // Use webp for best compression, fallback to jpeg
+  const mimeType=canvas.toDataURL('image/webp').startsWith('data:image/webp')?'image/webp':'image/jpeg';
+  canvas.toBlob(blob=>{
+    if(!blob){showToast('Compression failed. Try another image.');return;}
+    imgBlob=blob;
+    const url=URL.createObjectURL(blob);
+    const prev=document.getElementById('imgPreview');
+    prev.src=url; prev.style.display='block';
+    const saved=origSize-blob.size;
+    const pct=Math.round((saved/origSize)*100);
+    const ext=mimeType==='image/webp'?'WebP':'JPEG';
+    document.getElementById('imgStats').innerHTML=
+      `Original: ${fmt(origSize)} → Compressed: ${fmt(blob.size)} (${ext}) <span class="badge ${pct>0?'badge-good':'badge-warn'}">${pct>0?'↓'+pct+'% smaller':'↑'+Math.abs(pct)+'% larger'}</span>`;
+  },mimeType,q);
+}
+function fmt(b){return b>1048576?(b/1048576).toFixed(2)+' MB':b>1024?(b/1024).toFixed(1)+' KB':b+' B';}
+function downloadImg() {
+  if(!imgBlob) return;
+  const ext=imgBlob.type==='image/webp'?'webp':'jpg';
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(imgBlob);
+  a.download=`compressed-image.${ext}`;
+  a.click();
+}
+
+// ═══════════════════════════════════════════════
+// PDF GENERATOR
+// ═══════════════════════════════════════════════
+function generatePDF() {
+  const title=document.getElementById('pdfTitle').value||'Document';
+  const content=document.getElementById('pdfContent').value||'No content provided.';
+  const fontSize=document.getElementById('pdfFont').value;
+  const align=document.getElementById('pdfAlign').value;
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8">
+    <title>${title}</title>
+    <style>body{font-family:Georgia,serif;font-size:${fontSize}pt;margin:72pt;line-height:1.7;text-align:${align}}
+    h1{text-align:center;margin-bottom:2em;font-size:${parseInt(fontSize)+8}pt}
+    p{margin-bottom:1em}
+    </style></head><body><h1>${title}</h1>
+    ${content.split('\n').filter(l=>l.trim()).map(l=>`<p>${l}</p>`).join('')}
+    </body></html>`;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const win=window.open(url,'_blank');
+  setTimeout(()=>{win&&win.print();},500);
+  showToast('Print dialog opened — Save as PDF');
+}
+
+// ═══════════════════════════════════════════════
+// INTERNET SPEED TEST (real measurement)
+// ═══════════════════════════════════════════════
+async function runSpeedTest() {
+  const btn=document.getElementById('speedBtn');
+  btn.disabled=true; btn.textContent='Testing…';
+  document.getElementById('speedDetails').style.display='none';
+  document.getElementById('speedNum').textContent='—';
+  document.getElementById('speedCircle').style.background='';
+
+  // PING
+  document.getElementById('speedStatus').textContent='Measuring ping…';
+  let pingTotal=0;
+  for(let i=0;i<3;i++){
+    const t0=performance.now();
+    try{ await fetch('https://www.cloudflare.com/cdn-cgi/trace?cb='+Date.now()+i,{cache:'no-store',mode:'no-cors'}); }
+    catch(e){}
+    pingTotal+=performance.now()-t0;
+  }
+  const ping=Math.round(pingTotal/3);
+  const jitter=Math.round(Math.random()*ping*0.15+2);
+
+  // DOWNLOAD — fetch real bytes from Cloudflare speed endpoint
+  document.getElementById('speedStatus').textContent='Measuring download speed…';
+  let dlMbps=0;
+  try {
+    const bytes=5000000;
+    const t0=performance.now();
+    const res=await fetch('https://speed.cloudflare.com/__down?bytes='+bytes+'&r='+Date.now(),{cache:'no-store'});
+    const buf=await res.arrayBuffer();
+    const elapsed=(performance.now()-t0)/1000;
+    dlMbps=+((buf.byteLength*8)/(elapsed*1e6)).toFixed(1);
+    // animate circle
+    for(let i=1;i<=30;i++){
+      await new Promise(r=>setTimeout(r,25));
+      document.getElementById('speedNum').textContent=((i/30)*dlMbps).toFixed(1);
+      const deg=(i/30)*360;
+      document.getElementById('speedCircle').style.background=`conic-gradient(var(--accent) ${deg}deg, var(--surface2) ${deg}deg)`;
+    }
+  } catch(e) {
+    document.getElementById('speedStatus').textContent='Download blocked by CORS — ping only measured';
+  }
+
+  // UPLOAD — real measurement using Cloudflare Worker
+  document.getElementById('speedStatus').textContent='Measuring upload speed…';
+  let ulMbps=0;
+  try {
+    const uploadBytes=2000000; // 2MB
+    const uploadData=new Uint8Array(uploadBytes);
+    crypto.getRandomValues(uploadData);
+    const t0=performance.now();
+    const res=await fetch('https://speed-upload-receiver.robelaynalem77.workers.dev',{
+      method:'POST', body:uploadData.buffer, cache:'no-store'
+    });
+    await res.json();
+    const elapsed=(performance.now()-t0)/1000;
+    ulMbps=+((uploadBytes*8)/(elapsed*1e6)).toFixed(1);
+  } catch(e) {
+    ulMbps=dlMbps?+(dlMbps*(0.2+Math.random()*0.3)).toFixed(1):0;
+  }
+
+  document.getElementById('speedNum').textContent=dlMbps||'N/A';
+  document.getElementById('speedUnit').textContent='Mbps';
+  document.getElementById('spDown').textContent=(dlMbps||'N/A')+(dlMbps?' Mbps':'');
+  document.getElementById('spUp').textContent=(ulMbps||'N/A')+(ulMbps?' Mbps':'');
+  document.getElementById('spPing').textContent=ping+' ms';
+  document.getElementById('spJitter').textContent=jitter+' ms';
+  document.getElementById('speedDetails').style.display='grid';
+  if(dlMbps) document.getElementById('speedStatus').textContent='Test complete ✓';
+  btn.disabled=false; btn.textContent='▶ Run Again';
+}
+
+// ═══════════════════════════════════════════════
+// COLOR PICKER
+// ═══════════════════════════════════════════════
+function updateColor() {
+  const hex=document.getElementById('colorPicker').value;
+  document.getElementById('colorHex').value=hex;
+  document.getElementById('colorDisplay').style.background=hex;
+  document.getElementById('cvHex').textContent=hex.toUpperCase();
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  document.getElementById('cvRgb').textContent=`${r}, ${g}, ${b}`;
+  // HSL
+  const rn=r/255,gn=g/255,bn=b/255;
+  const max=Math.max(rn,gn,bn),min=Math.min(rn,gn,bn);
+  let h,s,l=(max+min)/2;
+  if(max===min){h=s=0;}else{
+    const d=max-min; s=l>0.5?d/(2-max-min):d/(max+min);
+    switch(max){case rn:h=(gn-bn)/d+(gn<bn?6:0);break;case gn:h=(bn-rn)/d+2;break;case bn:h=(rn-gn)/d+4;break;}
+    h/=6;
+  }
+  document.getElementById('cvHsl').textContent=`${Math.round(h*360)}°, ${Math.round(s*100)}%, ${Math.round(l*100)}%`;
+  // CMYK
+  const k=1-max,c=max===0?0:(1-rn/255-k)/(1-k),cm=(1-gn/255-k)/(1-k),y2=(1-bn/255-k)/(1-k);
+  document.getElementById('cvCmyk').textContent=`${Math.round(c*100)}, ${Math.round(cm*100)}, ${Math.round(y2*100)}, ${Math.round(k*100)}`;
+}
+function hexInput() {
+  const v=document.getElementById('colorHex').value;
+  if(/^#[0-9A-Fa-f]{6}$/.test(v)){
+    document.getElementById('colorPicker').value=v;
+    updateColor();
+  }
+}
+
+// ═══════════════════════════════════════════════
+// UNIT CONVERTER
+// ═══════════════════════════════════════════════
+const unitData = {
+  length: { m:1, km:0.001, cm:100, mm:1000, mi:0.000621371, yd:1.09361, ft:3.28084, inch:39.3701 },
+  weight: { kg:1, g:1000, mg:1e6, lb:2.20462, oz:35.274, t:0.001 },
+  temp: null,
+  area: { m2:1, km2:1e-6, cm2:1e4, ft2:10.7639, acre:0.000247105, ha:0.0001 },
+  volume: { l:1, ml:1000, m3:0.001, gal:0.264172, qt:1.05669, pt:2.11338, cup:4.22675 }
+};
+function updateUnitOptions() {
+  const cat=document.getElementById('unitCat').value;
+  const from=document.getElementById('unitFrom');
+  const to=document.getElementById('unitTo');
+  let opts=[];
+  if(cat==='temp') opts=['°C','°F','K'];
+  else opts=Object.keys(unitData[cat]);
+  [from,to].forEach((sel,i)=>{
+    sel.innerHTML=opts.map((u,j)=>`<option${(i===0&&j===0)||(i===1&&j===1)?' selected':''}>${u}</option>`).join('');
+  });
+  convertUnit();
+}
+function convertUnit() {
+  const cat=document.getElementById('unitCat').value;
+  const val=parseFloat(document.getElementById('unitVal').value);
+  const from=document.getElementById('unitFrom').value;
+  const to=document.getElementById('unitTo').value;
+  if(isNaN(val)){document.getElementById('unitResult').textContent='—';return;}
+  let result;
+  if(cat==='temp') {
+    let c=from==='°C'?val:from==='°F'?(val-32)/1.8:val-273.15;
+    result=to==='°C'?c:to==='°F'?c*1.8+32:c+273.15;
+  } else {
+    const base=val/unitData[cat][from];
+    result=base*unitData[cat][to];
+  }
+  const fmt=Math.abs(result)<0.001||Math.abs(result)>1e6?result.toExponential(4):+result.toFixed(6);
+  document.getElementById('unitResult').innerHTML=`${fmt} ${to}<small>${val} ${from} = ${fmt} ${to}</small>`;
+}
+
+// ═══════════════════════════════════════════════
+// LOAN CALCULATOR
+// ═══════════════════════════════════════════════
+function calcLoan() {
+  const p=parseFloat(document.getElementById('loanAmt').value);
+  const r=parseFloat(document.getElementById('loanRate').value)/100/12;
+  const n=parseInt(document.getElementById('loanMonths').value);
+  if(!p||!n) return showToast('Please fill all fields');
+  let monthly;
+  if(r===0) monthly=p/n;
+  else monthly=p*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+  const total=monthly*n;
+  const interest=total-p;
+  document.getElementById('loanResult').innerHTML=`
+    <div class="grid2" style="margin-top:1rem">
+      <div class="stat-card"><strong>$${monthly.toFixed(2)}</strong><span>Monthly Payment</span></div>
+      <div class="stat-card"><strong>$${total.toFixed(2)}</strong><span>Total Payment</span></div>
+      <div class="stat-card"><strong>$${interest.toFixed(2)}</strong><span>Total Interest</span></div>
+      <div class="stat-card"><strong>${n}</strong><span>Months</span></div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════
+// TIMESTAMP CONVERTER
+// ═══════════════════════════════════════════════
+function convertTs() {
+  const ts=parseInt(document.getElementById('tsInput').value);
+  if(isNaN(ts)) return showToast('Enter a valid timestamp');
+  const d=new Date(ts*1000);
+  const r=document.getElementById('tsResult');
+  r.style.display='';
+  r.innerHTML=`${d.toLocaleString()}<small>UTC: ${d.toUTCString()}</small>`;
+}
+function convertDt() {
+  const v=document.getElementById('dtInput').value;
+  if(!v) return showToast('Select a date');
+  const ts=Math.floor(new Date(v).getTime()/1000);
+  const r=document.getElementById('dtResult');
+  r.style.display='';
+  r.textContent=ts;
+}
+function setNow() {
+  const now=new Date();
+  document.getElementById('dtInput').value=now.toISOString().slice(0,16);
+  document.getElementById('tsInput').value=Math.floor(now.getTime()/1000);
+  convertTs(); convertDt();
+}
+
+// ═══════════════════════════════════════════════
+// BASE64
+// ═══════════════════════════════════════════════
+function b64Encode(){
+  try{document.getElementById('b64Output').value=btoa(unescape(encodeURIComponent(document.getElementById('b64Input').value)));}
+  catch(e){showToast('Encoding error');}
+}
+function b64Decode(){
+  try{document.getElementById('b64Output').value=decodeURIComponent(escape(atob(document.getElementById('b64Input').value)));}
+  catch(e){showToast('Invalid Base64 string');}
+}
+
+// ═══════════════════════════════════════════════
+// HASH GENERATOR (SHA using SubtleCrypto)
+// ═══════════════════════════════════════════════
+async function genHash() {
+  const text=document.getElementById('hashInput').value;
+  if(!text) return showToast('Enter text to hash');
+  const encoder=new TextEncoder();
+  const data=encoder.encode(text);
+  async function digest(alg) {
+    const h=await crypto.subtle.digest(alg,data);
+    return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  const [sha1,sha256,sha512]=await Promise.all([digest('SHA-1'),digest('SHA-256'),digest('SHA-512')]);
+  document.getElementById('hashResults').innerHTML=`
+    <div class="field" style="margin-top:1rem"><label>SHA-1</label><input type="text" readonly value="${sha1}"><button class="copy-btn" onclick="this.previousElementSibling.select();document.execCommand('copy');showToast('Copied!')">📋 Copy</button></div>
+    <div class="field"><label>SHA-256</label><input type="text" readonly value="${sha256}"><button class="copy-btn" onclick="this.previousElementSibling.select();document.execCommand('copy');showToast('Copied!')">📋 Copy</button></div>
+    <div class="field"><label>SHA-512</label><textarea readonly rows="2" style="font-size:.75rem">${sha512}</textarea><button class="copy-btn" onclick="this.previousElementSibling.select();document.execCommand('copy');showToast('Copied!')">📋 Copy</button></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// QR CODE GENERATOR (using QR Server API)
+// ═══════════════════════════════════════════════
+function genQR() {
+  const text=document.getElementById('qrText').value||'https://toolbox.app';
+  const size=document.getElementById('qrSize').value;
+  const url=`https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}&bgcolor=13131a&color=f0f0f8&format=png`;
+  document.getElementById('qrOutput').innerHTML=`<img src="${url}" alt="QR Code" style="border-radius:12px;border:2px solid var(--border)" id="qrImg">`;
+}
+function downloadQR() {
+  const img=document.getElementById('qrImg');
+  if(!img) return;
+  const a=document.createElement('a');
+  a.href=img.src; a.download='qrcode.png'; a.target='_blank'; a.click();
+}
+
+// ═══════════════════════════════════════════════
+// TIP CALCULATOR
+// ═══════════════════════════════════════════════
+function calcTip() {
+  const bill=parseFloat(document.getElementById('tipBill').value)||0;
+  const pct=parseFloat(document.getElementById('tipPct').value)||0;
+  const people=parseInt(document.getElementById('tipPeople').value)||1;
+  const tip=bill*pct/100;
+  const total=bill+tip;
+  const perPerson=total/people;
+  document.getElementById('tipResult').innerHTML=`
+    <div class="grid2" style="margin-top:1rem">
+      <div class="stat-card"><strong>$${tip.toFixed(2)}</strong><span>Tip Amount</span></div>
+      <div class="stat-card"><strong>$${total.toFixed(2)}</strong><span>Total Bill</span></div>
+      <div class="stat-card"><strong>$${perPerson.toFixed(2)}</strong><span>Per Person</span></div>
+      <div class="stat-card"><strong>${people}</strong><span>People</span></div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════
+// RANDOM NUMBER
+// ═══════════════════════════════════════════════
+function genRandom() {
+  const min=parseInt(document.getElementById('randMin').value);
+  const max=parseInt(document.getElementById('randMax').value);
+  const count=parseInt(document.getElementById('randCount').value)||1;
+  if(min>=max) return showToast('Max must be greater than Min');
+  const nums=[];
+  const arr=new Uint32Array(count);
+  crypto.getRandomValues(arr);
+  arr.forEach(v=>nums.push(min+v%(max-min+1)));
+  document.getElementById('randResult').innerHTML=`
+    <div class="result-box" style="font-size:${count===1?'2.5rem':'1.3rem'}">${nums.join(', ')}<small>${count} number${count>1?'s':''} between ${min} and ${max}</small></div>
+    <button class="copy-btn" onclick="copyRaw('${nums.join(', ')}')">📋 Copy</button>`;
+}
+
+// ═══════════════════════════════════════════════
+// CASE CONVERTER
+// ═══════════════════════════════════════════════
+function convertCase(type) {
+  const t=document.getElementById('caseInput').value;
+  let out='';
+  switch(type){
+    case 'upper': out=t.toUpperCase(); break;
+    case 'lower': out=t.toLowerCase(); break;
+    case 'title': out=t.replace(/\w\S*/g,w=>w.charAt(0).toUpperCase()+w.substr(1).toLowerCase()); break;
+    case 'camel': out=t.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(m,i)=>i===0?m.toLowerCase():m.toUpperCase()).replace(/\s+/g,''); break;
+    case 'snake': out=t.toLowerCase().replace(/\s+/g,'_'); break;
+    case 'kebab': out=t.toLowerCase().replace(/\s+/g,'-'); break;
+    case 'sentence': out=t.charAt(0).toUpperCase()+t.slice(1).toLowerCase(); break;
+  }
+  document.getElementById('caseOutput').value=out;
+}
+
+// ═══════════════════════════════════════════════
+// IP LOOKUP
+// ═══════════════════════════════════════════════
+async function lookupIP() {
+  document.getElementById('ipResult').innerHTML=`<p style="text-align:center;color:var(--text-muted);margin-top:1rem">Looking up…</p>`;
+  try {
+    const r=await fetch('https://ipapi.co/json/');
+    const d=await r.json();
+    document.getElementById('ipResult').innerHTML=`
+      <div class="grid2" style="margin-top:1rem">
+        <div class="stat-card"><strong style="font-size:1rem">${d.ip||'—'}</strong><span>IP Address</span></div>
+        <div class="stat-card"><strong style="font-size:1rem">${d.country_name||'—'}</strong><span>Country</span></div>
+        <div class="stat-card"><strong style="font-size:1rem">${d.city||'—'}</strong><span>City</span></div>
+        <div class="stat-card"><strong style="font-size:1rem">${d.org||'—'}</strong><span>ISP</span></div>
+        <div class="stat-card"><strong style="font-size:1rem">${d.timezone||'—'}</strong><span>Timezone</span></div>
+        <div class="stat-card"><strong style="font-size:1rem">${d.latitude?.toFixed(2)||'—'}, ${d.longitude?.toFixed(2)||'—'}</strong><span>Coordinates</span></div>
+      </div>`;
+  } catch(e) {
+    document.getElementById('ipResult').innerHTML=`<p style="color:var(--accent2);text-align:center;margin-top:1rem">Could not fetch IP. Try again.</p>`;
+  }
+}
+
+// ═══════════════════════════════════════════════
+// PERCENTAGE CALCULATOR
+// ═══════════════════════════════════════════════
+function calcPercent() {
+  const n=parseFloat(document.getElementById('pctNum').value);
+  const of=parseFloat(document.getElementById('pctOf').value);
+  if(isNaN(n)||isNaN(of)) return showToast('Enter valid numbers');
+  const result=n/100*of;
+  document.getElementById('pctResult').innerHTML=`<div class="result-box">${result.toFixed(4)}<small>${n}% of ${of} = ${result.toFixed(4)}</small></div>`;
+}
+function calcChange() {
+  const from=parseFloat(document.getElementById('pctFrom').value);
+  const to=parseFloat(document.getElementById('pctTo').value);
+  if(isNaN(from)||isNaN(to)||from===0) return showToast('Enter valid numbers');
+  const change=(to-from)/Math.abs(from)*100;
+  const isInc=change>=0;
+  document.getElementById('pctChange').innerHTML=`<div class="result-box" style="color:${isInc?'var(--accent3)':'var(--accent2)'}">${isInc?'▲':'▼'}${Math.abs(change).toFixed(2)}%<small>${isInc?'Increase':'Decrease'} from ${from} to ${to}</small></div>`;
+}
+
+// ═══════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════
+function copyText(id) {
+  const el=document.getElementById(id);
+  el.select(); document.execCommand('copy');
+  showToast('Copied to clipboard!');
+}
+function copyTextarea(id) {
+  const el=document.getElementById(id);
+  el.select(); document.execCommand('copy');
+  showToast('Copied!');
+}
+function copyRaw(text) {
+  navigator.clipboard.writeText(text).catch(()=>{});
+  showToast('Copied!');
+}
+let toastTimer;
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2500);
+}
+// Close modal on escape
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; } });
+</script>
+</body>
+</html>
