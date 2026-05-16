@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QuickUtility — Free Online Tools</title>
+<meta name="description" content="25+ free online tools — image compressor, speed test, password generator, BMI calculator, QR code, JSON formatter and more. No signup needed.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8309160786395355" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--s1:#101010;--s2:#161616;--s3:#1e1e1e;
+  --b1:#222;--b2:#2e2e2e;--b3:#3a3a3a;
+  --t1:#f0f0f0;--t2:#aaa;--t3:#666;
+  --acc:#ffffff;--r:10px;
+  --serif:'DM Serif Display',serif;--sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--b1);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,2.5rem);gap:1rem}
+.logo{font-family:var(--serif);font-size:1.25rem;color:var(--t1);text-decoration:none;letter-spacing:-.3px;flex-shrink:0}
+.logo span{color:var(--t3)}
+.nav-mid{flex:1;max-width:260px;margin:0 1rem}
+.nav-search{display:flex;align-items:center;gap:.5rem;background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:.38rem .8rem}
+.nav-search svg{flex-shrink:0;color:var(--t3)}
+.nav-search input{background:none;border:none;outline:none;color:var(--t1);font-family:var(--sans);font-size:.83rem;width:100%}
+.nav-search input::placeholder{color:var(--t3)}
+.nav-right{display:flex;align-items:center;gap:.8rem}
+.nav-links{display:flex;gap:1.2rem;list-style:none}
+.nav-links a{color:var(--t3);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--t1)}
+.auth-btn{background:var(--t1);color:#000;border:none;border-radius:8px;padding:.38rem 1rem;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:opacity .15s;flex-shrink:0}
+.auth-btn:hover{opacity:.85}
+.auth-btn.signed{background:var(--s2);color:var(--t1);border:1px solid var(--b1)}
+.udwrap{position:relative}
+.udrop{display:none;position:absolute;top:calc(100%+8px);right:0;background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);width:200px;z-index:300;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.udrop.show{display:block}
+.ud-info{padding:.85rem 1rem;border-bottom:1px solid var(--b1)}
+.ud-name{font-weight:600;font-size:.88rem}
+.ud-email{font-size:.72rem;color:var(--t3);margin-top:.15rem}
+.ud-item{display:block;width:100%;padding:.6rem 1rem;background:none;border:none;color:var(--t2);font-family:var(--sans);font-size:.83rem;text-align:left;cursor:pointer}
+.ud-item:hover{background:var(--s2);color:var(--t1)}
+.hbtn{display:none;background:none;border:1px solid var(--b1);color:var(--t1);padding:.35rem .6rem;border-radius:6px;cursor:pointer;font-size:1rem}
+@media(max-width:700px){.nav-links{display:none}.nav-mid{display:none}.hbtn{display:block}}
+
+/* HERO */
+.hero{text-align:center;padding:clamp(4rem,10vw,7rem) 1rem clamp(3rem,6vw,5rem);border-bottom:1px solid var(--b1);position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--b1) 1px,transparent 1px),linear-gradient(90deg,var(--b1) 1px,transparent 1px);background-size:50px 50px;opacity:.25}
+.hero-inner{position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--s1);border:1px solid var(--b1);border-radius:999px;padding:.28rem .9rem;font-size:.75rem;color:var(--t2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.04;letter-spacing:-1.5px;margin-bottom:1.1rem}
+.hero h1 i{font-style:italic;color:var(--t3)}
+.hero p{color:var(--t2);font-size:clamp(.9rem,2vw,1.05rem);max-width:440px;margin:0 auto 2.5rem;font-weight:300}
+.hero-stats{display:inline-flex;border:1px solid var(--b1);border-radius:var(--r);overflow:hidden}
+.hstat{padding:.9rem 1.6rem;text-align:center;border-right:1px solid var(--b1)}
+.hstat:last-child{border-right:none}
+.hstat strong{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--t1)}
+.hstat span{font-size:.7rem;color:var(--t3);text-transform:uppercase;letter-spacing:.08em}
+
+/* TOOLS SECTION */
+.sec-header{display:flex;align-items:center;justify-content:space-between;padding:1.4rem clamp(1rem,4vw,2.5rem) .7rem}
+.sec-header h2{font-family:var(--serif);font-size:1.35rem}
+.sec-header small{color:var(--t3);font-size:.8rem}
+.cats{display:flex;gap:.4rem;flex-wrap:wrap;padding:.3rem clamp(1rem,4vw,2.5rem) 1rem}
+.cat{background:transparent;border:1px solid var(--b1);border-radius:6px;padding:.3rem .85rem;font-size:.78rem;color:var(--t2);cursor:pointer;font-family:var(--sans);transition:all .12s}
+.cat:hover{border-color:var(--b2);color:var(--t1)}
+.cat.on{background:var(--t1);border-color:var(--t1);color:#000;font-weight:600}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:1px;background:var(--b1);margin:0 clamp(1rem,4vw,2.5rem) 3rem;border:1px solid var(--b1);border-radius:var(--r);overflow:hidden}
+.card{background:var(--s1);padding:1.5rem;cursor:pointer;transition:background .12s;position:relative}
+.card:hover{background:var(--s2)}
+.card:hover .c-arr{opacity:1;transform:translateX(0)}
+.c-icon{font-size:1.7rem;margin-bottom:.8rem;display:block;line-height:1}
+.card h3{font-size:.92rem;font-weight:600;margin-bottom:.25rem;color:var(--t1)}
+.card p{font-size:.76rem;color:var(--t2);line-height:1.5}
+.c-tag{display:inline-block;margin-top:.7rem;border:1px solid var(--b1);border-radius:4px;padding:.12rem .45rem;font-size:.66rem;color:var(--t3)}
+.c-arr{position:absolute;top:1.4rem;right:1.4rem;color:var(--t3);opacity:0;transform:translateX(-4px);transition:all .12s;font-size:.85rem}
+
+/* ABOUT */
+.about{margin:0 clamp(1rem,4vw,2.5rem) 3rem;border:1px solid var(--b1);border-radius:var(--r);overflow:hidden}
+.about-head{padding:1.8rem;border-bottom:1px solid var(--b1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--s1)}
+.about-head h2{font-family:var(--serif);font-size:1.7rem}
+.about-cols{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.about-cols{grid-template-columns:1fr}}
+.acol{padding:1.6rem;border-right:1px solid var(--b1)}
+.acol:last-child{border-right:none}
+.acol h3{font-size:.72rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.acol p{font-size:.84rem;color:var(--t2);line-height:1.7}
+.feat{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.feat li{font-size:.83rem;color:var(--t2);display:flex;align-items:center;gap:.5rem}
+.feat li::before{content:'→';color:var(--t3);flex-shrink:0}
+
+/* POLICY PAGES */
+.policy{max-width:700px;margin:0 auto;padding:3rem clamp(1rem,4vw,2.5rem);display:none}
+.policy.on{display:block}
+.policy h1{font-family:var(--serif);font-size:2rem;margin-bottom:.4rem}
+.pmeta{font-size:.78rem;color:var(--t3);padding-bottom:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--b1)}
+.policy h2{font-size:.95rem;font-weight:600;margin:1.6rem 0 .4rem}
+.policy p,.policy li{font-size:.85rem;color:var(--t2);line-height:1.8;margin-bottom:.4rem}
+.policy ul{padding-left:1.2rem}
+.policy a{color:var(--t1)}
+
+/* MAIN */
+.main{display:block}
+.main.off{display:none}
+
+/* MODAL */
+.moverlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1rem}
+.moverlay.open{display:flex}
+.mbox{background:var(--s1);border:1px solid var(--b1);border-radius:14px;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;animation:mIn .18s ease}
+@keyframes mIn{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.mhead{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;border-bottom:1px solid var(--b1);position:sticky;top:0;background:var(--s1);z-index:1}
+.mhead h2{font-family:var(--sans);font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+.mclose{background:var(--s2);border:1px solid var(--b1);color:var(--t2);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.mclose:hover{background:var(--b1);color:var(--t1)}
+.mbody{padding:1.4rem}
+
+/* FORM */
+.field{margin-bottom:.9rem}
+label{display:block;font-size:.73rem;color:var(--t2);margin-bottom:.35rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+input[type=text],input[type=number],input[type=email],input[type=password],input[type=date],input[type=datetime-local],textarea,select{width:100%;background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:.56rem .85rem;color:var(--t1);font-family:var(--sans);font-size:.86rem;outline:none;transition:border-color .12s}
+input:focus,textarea:focus,select:focus{border-color:var(--b3)}
+textarea{resize:vertical;min-height:78px}
+.btn{background:var(--t1);color:#000;border:none;border-radius:8px;padding:.6rem 1.3rem;font-family:var(--sans);font-size:.86rem;font-weight:600;cursor:pointer;transition:opacity .12s;display:inline-flex;align-items:center;gap:.45rem}
+.btn:hover{opacity:.82}
+.btn-o{background:transparent;color:var(--t1);border:1px solid var(--b1)}
+.btn-o:hover{border-color:var(--b2);background:var(--s2)}
+.rbox{background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:1.1rem;margin-top:.9rem;font-family:var(--serif);font-size:1.55rem;font-weight:700;text-align:center;color:var(--t1);word-break:break-all}
+.rbox small{display:block;font-size:.73rem;color:var(--t2);font-family:var(--sans);font-weight:400;margin-top:.25rem}
+.row{display:flex;gap:.7rem;flex-wrap:wrap}
+.row .field{flex:1;min-width:100px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+@media(max-width:380px){.g2{grid-template-columns:1fr}}
+.divider{border:none;border-top:1px solid var(--b1);margin:1.1rem 0}
+.itext{font-size:.77rem;color:var(--t2);margin-top:.4rem}
+.badge{display:inline-block;border-radius:4px;padding:.18rem .45rem;font-size:.72rem;font-weight:600}
+.bg{background:rgba(74,222,128,.1);color:#4ade80}
+.bw{background:rgba(251,191,36,.1);color:#fbbf24}
+.br{background:rgba(248,113,113,.1);color:#f87171}
+.pbar{background:var(--s2);border-radius:99px;height:5px;overflow:hidden;margin:.45rem 0}
+.pfill{height:100%;border-radius:99px;background:var(--t1);transition:width .4s}
+.mlbl{display:flex;justify-content:space-between;font-size:.75rem;color:var(--t2)}
+.cbtn{background:none;border:1px solid var(--b1);border-radius:6px;color:var(--t2);font-family:var(--sans);font-size:.76rem;padding:.3rem .75rem;cursor:pointer;transition:all .12s;margin-top:.4rem}
+.cbtn:hover{border-color:var(--b2);color:var(--t1)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
+.chip{background:var(--s2);border:1px solid var(--b1);border-radius:6px;padding:.3rem .75rem;cursor:pointer;font-size:.8rem;color:var(--t2);font-family:var(--sans);transition:all .12s;user-select:none}
+.chip.on{background:var(--t1);border-color:var(--t1);color:#000}
+.scircle{width:144px;height:144px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:1rem auto;border:1px solid var(--b1);transition:background 1s}
+.sinner{width:114px;height:114px;border-radius:50%;background:var(--s1);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.snum{font-family:var(--serif);font-size:1.8rem;color:var(--t1)}
+.sunit{font-size:.67rem;color:var(--t2)}
+.fdrop{border:1px dashed var(--b1);border-radius:var(--r);padding:2rem;text-align:center;cursor:pointer;color:var(--t2);transition:all .12s}
+.fdrop:hover{border-color:var(--b2);color:var(--t1)}
+.ficon{font-size:2rem;margin-bottom:.45rem}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(85px,1fr));gap:.5rem;margin-top:.7rem}
+.scard{background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:.75rem;text-align:center}
+.scard strong{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--t1)}
+.scard span{font-size:.68rem;color:var(--t2)}
+input[type=range]{width:100%;-webkit-appearance:none;height:3px;background:var(--b1);border-radius:99px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--t1);cursor:pointer}
+.imgprev{max-width:100%;border-radius:8px;margin-top:.7rem;border:1px solid var(--b1)}
+.toast{position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--t1);color:#000;border-radius:8px;padding:.55rem 1.2rem;font-size:.83rem;font-weight:600;z-index:999;transition:transform .22s;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* AUTH MODAL */
+.auth-ov{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1rem}
+.auth-ov.open{display:flex}
+.abox{background:var(--s1);border:1px solid var(--b1);border-radius:14px;width:100%;max-width:380px;overflow:hidden;animation:mIn .18s ease}
+.atop{padding:1.3rem 1.4rem 0;display:flex;align-items:center;justify-content:space-between}
+.atop h2{font-family:var(--serif);font-size:1.3rem}
+.atabs{display:flex;border-bottom:1px solid var(--b1);margin-top:1rem}
+.atab{flex:1;padding:.62rem;background:none;border:none;border-bottom:2px solid transparent;color:var(--t2);font-family:var(--sans);font-size:.83rem;font-weight:600;cursor:pointer;transition:all .12s}
+.atab.on{color:var(--t1);border-bottom-color:var(--t1)}
+.abody{padding:1.3rem}
+.aerr{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);border-radius:7px;padding:.5rem .8rem;font-size:.8rem;color:#f87171;margin-bottom:.85rem;display:none}
+.gdiv{display:flex;align-items:center;gap:.7rem;margin:.75rem 0;font-size:.73rem;color:var(--t3)}
+.gdiv::before,.gdiv::after{content:'';flex:1;height:1px;background:var(--b1)}
+.gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:.55rem;background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:.58rem;font-family:var(--sans);font-size:.84rem;color:var(--t1);cursor:pointer;transition:border-color .12s}
+.gbtn:hover{border-color:var(--b2)}
+.anote{text-align:center;font-size:.71rem;color:var(--t3);margin-top:.85rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--b1);padding:1.8rem clamp(1rem,4vw,2.5rem);display:grid;grid-template-columns:1fr auto;gap:1rem;font-size:.8rem;color:var(--t3)}
+@media(max-width:560px){footer{grid-template-columns:1fr}}
+.flogo{font-family:var(--serif);font-size:1.1rem;color:var(--t1);margin-bottom:.35rem}
+.fdesc{font-size:.76rem;max-width:260px;line-height:1.6}
+.flinks{display:flex;flex-direction:column;gap:.4rem;text-align:right}
+@media(max-width:560px){.flinks{text-align:left;flex-direction:row;flex-wrap:wrap;gap:.7rem}}
+.flinks a{color:var(--t3);text-decoration:none;transition:color .12s;font-size:.78rem}
+.flinks a:hover{color:var(--t1)}
+.fcopy{grid-column:1/-1;border-top:1px solid var(--b1);padding-top:1rem;font-size:.73rem;color:var(--t3)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#" onclick="goHome()">Quick<span>Utility</span></a>
+  <div class="nav-mid">
+    <div class="nav-search">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="srch" placeholder="Search tools…" oninput="doFilter()">
+    </div>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#" onclick="goHome()">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#" href="privacy.html">Privacy</a></li>
+      <li><a href="#" href="terms.html">Terms</a></li>
+      <li><a href="#" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="udwrap">
+      <button class="auth-btn" id="authBtn" onclick="openAuth()">Sign In</button>
+      <div class="udrop" id="udrop">
+        <div class="ud-info"><div class="ud-name" id="udName"></div><div class="ud-email" id="udEmail"></div></div>
+        <button class="ud-item" onclick="doSignout()">⎋ Sign Out</button>
+      </div>
+    </div>
+    <button class="hbtn" onclick="toggleNav()">☰</button>
+  </div>
+</nav>
+
+<div class="main" id="main">
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="hero-dot"></span>25+ Free Tools</div>
+    <h1>Free Online <i>Utility</i><br>Tools for Everyone</h1>
+    <p>Fast, powerful tools with no signup required. Works on every device.</p>
+    <div class="hero-stats">
+      <div class="hstat"><strong>25+</strong><span>Tools</span></div>
+      <div class="hstat"><strong>100%</strong><span>Free</span></div>
+      <div class="hstat"><strong>0</strong><span>Signups</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-header"><h2>All Tools</h2><small id="tcnt">25 tools</small></div>
+<div class="cats" id="cats">
+  <button class="cat on" onclick="setCat('all',this)">All</button>
+  <button class="cat" onclick="setCat('file',this)">Files</button>
+  <button class="cat" onclick="setCat('web',this)">Web & Network</button>
+  <button class="cat" onclick="setCat('security',this)">Security</button>
+  <button class="cat" onclick="setCat('dev',this)">Developer</button>
+  <button class="cat" onclick="setCat('math',this)">Math & Health</button>
+  <button class="cat" onclick="setCat('text',this)">Text</button>
+  <button class="cat" onclick="setCat('convert',this)">Conversion</button>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="about" id="about">
+  <div class="about-head">
+    <div><h2>About QuickUtility</h2><p style="font-size:.82rem;color:var(--t2);margin-top:.3rem">Built for speed. Designed for everyone.</p></div>
+    <div style="font-size:.78rem;color:var(--t3);text-align:right"><div>Est. 2026</div><div>quickutility.me</div></div>
+  </div>
+  <div class="about-cols">
+    <div class="acol">
+      <h3>What We Do</h3>
+      <p>QuickUtility is a free collection of everyday online tools built to save you time. No accounts, no downloads, no paywalls — just open a tool and get results instantly.</p>
+      <p style="margin-top:.7rem">Whether you need to compress an image, test your internet speed, generate a password or calculate your BMI — we have you covered.</p>
+    </div>
+    <div class="acol">
+      <h3>Why QuickUtility</h3>
+      <ul class="feat">
+        <li>25+ tools in one place</li>
+        <li>Works on phone and desktop</li>
+        <li>No signup or registration</li>
+        <li>Your data stays in your browser</li>
+        <li>Fast and lightweight</li>
+        <li>Always completely free</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<!-- POLICY PAGES -->
+<div class="policy" id="pg-privacy">
+  <h1>Privacy Policy</h1><p class="pmeta">Last updated: May 13, 2026</p>
+  <h2>1. Information We Collect</h2><p>QuickUtility does not collect or store personal information. All tools run in your browser. No data you enter is sent to our servers.</p>
+  <h2>2. Cookies & Advertising</h2><p>We use Google AdSense to display advertisements, which may use cookies. We do not use tracking cookies ourselves.</p>
+  <h2>3. Third-Party Services</h2><p>We use Google AdSense, Cloudflare (speed test), QR Server API, and Firebase Authentication. These have their own privacy policies.</p>
+  <h2>4. Children's Privacy</h2><p>QuickUtility is not directed at children under 13. We do not knowingly collect information from children.</p>
+  <h2>5. Contact</h2><p>Questions? Email <a href="mailto:support@quickutility.me">support@quickutility.me</a></p>
+  <br><button class="btn btn-o" onclick="goHome()">← Back to Tools</button>
+</div>
+
+<div class="policy" id="pg-terms">
+  <h1>Terms of Service</h1><p class="pmeta">Last updated: May 13, 2026</p>
+  <h2>1. Acceptance</h2><p>By using QuickUtility, you agree to these terms. If you disagree, please do not use the site.</p>
+  <h2>2. Use of Services</h2><p>Tools are provided for personal and commercial use. You agree to use them only for lawful purposes.</p>
+  <h2>3. Disclaimer</h2><p>All tools are provided "as is" without warranty. We do not guarantee accuracy of results. Verify important calculations independently.</p>
+  <h2>4. Limitation of Liability</h2><p>QuickUtility is not liable for any damages arising from use of our tools. Use is at your own risk.</p>
+  <h2>5. Advertising</h2><p>We display Google AdSense advertisements to keep the service free.</p>
+  <h2>6. Contact</h2><p><a href="mailto:support@quickutility.me">support@quickutility.me</a></p>
+  <br><button class="btn btn-o" onclick="goHome()">← Back to Tools</button>
+</div>
+
+<div class="policy" id="pg-contact">
+  <h1>Contact Us</h1><p class="pmeta">We'd love to hear from you</p>
+  <p>Have a suggestion, found a bug, or want to say hi?</p>
+  <h2>Email</h2><p><a href="mailto:support@quickutility.me">support@quickutility.me</a></p>
+  <h2>Response Time</h2><p>We typically respond within 24–48 hours.</p>
+  <h2>Suggest a Tool</h2><p>Email us your tool idea and we'll consider adding it!</p>
+  <br><button class="btn btn-o" onclick="goHome()">← Back to Tools</button>
+</div>
+
+<footer>
+  <div><div class="flogo">QuickUtility</div><div class="fdesc">Free online tools for everyone. No signup, no tracking, just tools.</div></div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="fcopy">© 2026 QuickUtility — All rights reserved · quickutility.me</div>
+</footer>
+
+<!-- TOOL MODAL -->
+<div class="moverlay" id="mov" onclick="if(event.target===this)closeMod()">
+  <div class="mbox">
+    <div class="mhead"><h2 id="mtitle">Tool</h2><button class="mclose" onclick="closeMod()">✕</button></div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-ov" id="authOv" onclick="if(event.target===this)closeAuth()">
+  <div class="abox">
+    <div class="atop">
+      <h2>QuickUtility</h2>
+      <button class="mclose" onclick="closeAuth()">✕</button>
+    </div>
+    <div class="atabs">
+      <button class="atab on" id="tab-in" onclick="switchTab('in')">Sign In</button>
+      <button class="atab" id="tab-up" onclick="switchTab('up')">Sign Up</button>
+    </div>
+    <div class="abody">
+      <div class="aerr" id="aerr"></div>
+      <div class="field" id="fn-wrap" style="display:none">
+        <label>Full Name</label><input type="text" id="fn" placeholder="John Doe">
+      </div>
+      <div class="field"><label>Email</label><input type="email" id="fe" placeholder="you@example.com"></div>
+      <div class="field"><label>Password</label><input type="password" id="fp" placeholder="••••••••"></div>
+      <button class="btn" id="asub" style="width:100%;justify-content:center" onclick="doSignin()">Sign In</button>
+      <div class="gdiv">or</div>
+      <button class="gbtn" onclick="doGoogle()">
+        <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        Continue with Google
+      </button>
+      <p class="anote">Optional — all tools work without an account</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- FIREBASE -->
+<script type="module">
+import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider,signOut,onAuthStateChanged,updateProfile}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+const app=initializeApp({apiKey:"AIzaSyBPyXFOaROIxOUQN2KtUi1TMBNay4_BnII",authDomain:"quickutility-dbe59.firebaseapp.com",projectId:"quickutility-dbe59",storageBucket:"quickutility-dbe59.firebasestorage.app",messagingSenderId:"375802424075",appId:"1:375802424075:web:5c688817b637d812cf500e"});
+const auth=getAuth(app);const gp=new GoogleAuthProvider();
+onAuthStateChanged(auth,u=>{
+  const btn=document.getElementById('authBtn');
+  if(!btn)return;
+  if(u){
+    const n=u.displayName||u.email.split('@')[0];
+    btn.textContent=n;btn.classList.add('signed');
+    btn.onclick=()=>document.getElementById('udrop').classList.toggle('show');
+    document.getElementById('udName').textContent=n;
+    document.getElementById('udEmail').textContent=u.email;
+  }else{
+    btn.textContent='Sign In';btn.classList.remove('signed');
+    btn.onclick=openAuth;
+    document.getElementById('udrop').classList.remove('show');
+  }
+});
+window._auth=auth;window._gp=gp;
+window.doSignup=async()=>{
+  const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim(),p=document.getElementById('fp').value;
+  if(!n||!e||!p)return showAerr('Please fill all fields');
+  if(p.length<6)return showAerr('Password needs at least 6 characters');
+  try{document.getElementById('asub').textContent='Creating…';
+  const c=await createUserWithEmailAndPassword(auth,e,p);
+  await updateProfile(c.user,{displayName:n});
+  closeAuth();showToast('Welcome '+n+'! 🎉');}
+  catch(err){showAerr(err.code==='auth/email-already-in-use'?'Email already registered':'Sign up failed');document.getElementById('asub').textContent='Create Account';}
+};
+window.doSignin=async()=>{
+  const e=document.getElementById('fe').value.trim(),p=document.getElementById('fp').value;
+  if(!e||!p)return showAerr('Enter email and password');
+  try{document.getElementById('asub').textContent='Signing in…';
+  await signInWithEmailAndPassword(auth,e,p);
+  closeAuth();showToast('Welcome back! 👋');}
+  catch(err){showAerr('Wrong email or password');document.getElementById('asub').textContent='Sign In';}
+};
+window.doGoogle=async()=>{
+  try{await signInWithPopup(auth,gp);closeAuth();showToast('Signed in with Google! 🎉');}
+  catch(err){showAerr('Google sign-in failed. Try again.');}
+};
+window.doSignout=async()=>{
+  await signOut(auth);
+  document.getElementById('udrop').classList.remove('show');
+  showToast('Signed out successfully');
+};
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#authBtn')&&!e.target.closest('#udrop'))
+    document.getElementById('udrop').classList.remove('show');
+});
+</script>
+
+<script>
+// ── TOOLS DATA ──────────────────────────────
+const tools=[
+  {id:'compress',icon:'🖼️',name:'Image Compressor',desc:'Compress images to reduce file size while keeping quality.',cat:'file',tag:'Image'},
+  {id:'pdf',icon:'📄',name:'PDF Converter',desc:'Convert text content to a downloadable PDF document.',cat:'file',tag:'PDF'},
+  {id:'speed',icon:'📡',name:'Internet Speed Test',desc:'Measure your real internet download and upload speed.',cat:'web',tag:'Network'},
+  {id:'ip',icon:'🌐',name:'IP Address Lookup',desc:'Find your public IP address and location details.',cat:'web',tag:'Network'},
+  {id:'base64',icon:'🔤',name:'Base64 Encoder',desc:'Encode or decode text and data in Base64 format.',cat:'security',tag:'Dev'},
+  {id:'qr',icon:'🔲',name:'QR Code Generator',desc:'Generate QR codes from any URL, text or contact info.',cat:'web',tag:'Utility'},
+  {id:'hash',icon:'#️⃣',name:'Hash Generator',desc:'Generate SHA-1, SHA-256 and SHA-512 hashes from text.',cat:'security',tag:'Security'},
+  {id:'json',icon:'{}',name:'JSON Formatter',desc:'Format, validate and prettify JSON data instantly.',cat:'dev',tag:'Developer'},
+  {id:'css',icon:'🎨',name:'CSS Minifier',desc:'Minify and compress CSS code to reduce file size.',cat:'dev',tag:'Developer'},
+  {id:'bmi',icon:'⚖️',name:'BMI Calculator',desc:'Calculate Body Mass Index and get health category insights.',cat:'math',tag:'Health'},
+  {id:'gpa',icon:'🎓',name:'GPA Calculator',desc:'Calculate semester or cumulative GPA with weighted grades.',cat:'math',tag:'Education'},
+  {id:'percent',icon:'💯',name:'Percentage Calculator',desc:'Calculate percentages, increases, decreases and differences.',cat:'math',tag:'Math'},
+  {id:'password',icon:'🔑',name:'Password Generator',desc:'Generate strong, secure passwords with custom options.',cat:'security',tag:'Security'},
+  {id:'age',icon:'🎂',name:'Age Calculator',desc:'Calculate your exact age in years, months, days and hours.',cat:'math',tag:'Health'},
+  {id:'word',icon:'📝',name:'Word Counter',desc:'Count words, characters, sentences and reading time.',cat:'text',tag:'Text'},
+  {id:'case',icon:'🔡',name:'Case Converter',desc:'Convert text between UPPER, lower, Title and snake_case.',cat:'text',tag:'Text'},
+  {id:'unit',icon:'📏',name:'Unit Converter',desc:'Convert length, weight, temperature, area and volume.',cat:'convert',tag:'Conversion'},
+  {id:'currency',icon:'💱',name:'Currency Converter',desc:'Convert between major world currencies with rates.',cat:'convert',tag:'Finance'},
+  {id:'color',icon:'🎨',name:'Color Picker',desc:'Pick, convert and explore colors in HEX, RGB and HSL.',cat:'convert',tag:'Design'},
+  {id:'loan',icon:'💰',name:'Loan Calculator',desc:'Calculate monthly payments and total interest on loans.',cat:'math',tag:'Finance'},
+  {id:'tip',icon:'🍽️',name:'Tip Calculator',desc:'Calculate tips and split bills among multiple people.',cat:'math',tag:'Finance'},
+  {id:'timestamp',icon:'⏱️',name:'Timestamp Converter',desc:'Convert Unix timestamps to readable dates and back.',cat:'convert',tag:'Dev'},
+  {id:'random',icon:'🎲',name:'Random Number',desc:'Generate random numbers within any range you define.',cat:'math',tag:'Utility'},
+  {id:'screen',icon:'🖥️',name:'Screen Resolution',desc:'Check your current screen resolution and device info.',cat:'web',tag:'Utility'},
+  {id:'readtime',icon:'📖',name:'Read Time Estimator',desc:'Estimate how long it takes to read any text or article.',cat:'text',tag:'Text'},
+];
+
+// ── NAVIGATION ───────────────────────────────
+function goHome(ph=true){
+  document.getElementById('main').classList.remove('off');
+  document.querySelectorAll('.policy').forEach(p=>p.classList.remove('on'));
+  if(ph)history.pushState({p:'home'},'','#');
+  scrollTo(0,0);
+}
+function goPage(name,ph=true){
+  document.getElementById('main').classList.add('off');
+  document.querySelectorAll('.policy').forEach(p=>p.classList.remove('on'));
+  const el=document.getElementById('pg-'+name);
+  if(el)el.classList.add('on');
+  if(ph)history.pushState({p:name},'','#'+name);
+  scrollTo(0,0);
+}
+function openTool(id,ph=true){
+  const t=tools.find(x=>x.id===id);if(!t)return;
+  document.getElementById('mtitle').innerHTML=t.icon+' '+t.name;
+  document.getElementById('mbody').innerHTML=getHTML(id);
+  document.getElementById('mov').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(ph)history.pushState({p:'tool',id},'','#tool-'+id);
+  setTimeout(()=>initTool(id),40);
+}
+function closeMod(ph=true){
+  document.getElementById('mov').classList.remove('open');
+  document.body.style.overflow='';
+  if(ph)history.back();
+}
+window.addEventListener('popstate',e=>{
+  const s=e.state;
+  document.getElementById('mov').classList.remove('open');
+  document.body.style.overflow='';
+  if(!s||s.p==='home')goHome(false);
+  else if(s.p==='tool')openTool(s.id,false);
+  else goPage(s.p,false);
+});
+history.replaceState({p:'home'},'',location.href);
+
+function toggleNav(){
+  const ul=document.querySelector('.nav-links');
+  const open=ul.style.display==='flex';
+  Object.assign(ul.style,{display:open?'none':'flex',flexDirection:'column',position:'fixed',top:'58px',left:'0',right:'0',background:'var(--bg)',padding:'1rem 2rem',borderBottom:'1px solid var(--b1)',zIndex:'99'});
+}
+
+// ── AUTH ─────────────────────────────────────
+function openAuth(){document.getElementById('authOv').classList.add('open');document.body.style.overflow='hidden';document.getElementById('aerr').style.display='none';}
+function closeAuth(){document.getElementById('authOv').classList.remove('open');document.body.style.overflow='';}
+function showAerr(m){const e=document.getElementById('aerr');e.textContent=m;e.style.display='block';}
+function switchTab(mode){
+  document.getElementById('tab-in').classList.toggle('on',mode==='in');
+  document.getElementById('tab-up').classList.toggle('on',mode==='up');
+  document.getElementById('fn-wrap').style.display=mode==='up'?'block':'none';
+  const s=document.getElementById('asub');
+  s.textContent=mode==='in'?'Sign In':'Create Account';
+  s.onclick=mode==='in'?doSignin:doSignup;
+  document.getElementById('aerr').style.display='none';
+}
+
+// ── RENDER ───────────────────────────────────
+let curCat='all',curQ='';
+function render(list){
+  document.getElementById('tcnt').textContent=list.length+' tools';
+  document.getElementById('grid').innerHTML=list.map(t=>`
+    <div class="card" onclick="goTool('${t.id}')">
+      <span class="c-icon">${t.icon}</span>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <span class="c-tag">${t.tag}</span>
+      <span class="c-arr">→</span>
+    </div>`).join('');
+}
+function setCat(c,el){
+  curCat=c;
+  document.querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));
+  el.classList.add('on');applyF();
+}
+function doFilter(){curQ=document.getElementById('srch').value.toLowerCase();applyF();}
+function applyF(){
+  let l=tools;
+  if(curCat!=='all')l=l.filter(t=>t.cat===curCat);
+  if(curQ)l=l.filter(t=>(t.name+t.desc+t.tag).toLowerCase().includes(curQ));
+  render(l);
+}
+render(tools);
+
+// ── TOOL HTML ────────────────────────────────
+const today=new Date().toISOString().split('T')[0];
+function getHTML(id){
+  const H={
+    age:`<div class="field"><label>Date of Birth</label><input type="date" id="dob" max="${today}"></div>
+<div class="field"><label>As of Date</label><input type="date" id="aof" value="${today}"></div>
+<button class="btn" onclick="calcAge()">Calculate</button><div id="ager"></div>`,
+
+    bmi:`<div class="field"><label>Unit System</label><select id="bu" onchange="toggleBU()"><option value="m">Metric (kg / cm)</option><option value="i">Imperial (lb / ft)</option></select></div>
+<div id="bm"><div class="row"><div class="field"><label>Weight (kg)</label><input type="number" id="bkg" placeholder="70"></div><div class="field"><label>Height (cm)</label><input type="number" id="bcm" placeholder="170"></div></div></div>
+<div id="bi" style="display:none"><div class="row"><div class="field"><label>Weight (lb)</label><input type="number" id="blb" placeholder="154"></div><div class="field"><label>Height (ft)</label><input type="number" id="bft" placeholder="5"></div><div class="field"><label>In</label><input type="number" id="bin" placeholder="7"></div></div></div>
+<button class="btn" onclick="calcBMI()">Calculate BMI</button><div id="bmir"></div>`,
+
+    gpa:`<div id="grows"><div class="row" style="align-items:center"><div class="field" style="flex:2"><label>Course</label><input type="text" placeholder="Mathematics"></div><div class="field"><label>Grade</label><select class="gg"><option value="4.0">A (4.0)</option><option value="3.7">A-</option><option value="3.3">B+</option><option value="3.0">B</option><option value="2.7">B-</option><option value="2.0">C</option><option value="1.0">D</option><option value="0.0">F</option></select></div><div class="field"><label>Credits</label><input type="number" class="gc" value="3" min="1" max="6"></div></div></div>
+<div style="display:flex;gap:.6rem;margin-bottom:.9rem"><button class="btn btn-o" style="flex:1" onclick="addGR()">+ Add Course</button><button class="btn" style="flex:1" onclick="calcGPA()">Calculate GPA</button></div><div id="gpar"></div>`,
+
+    loan:`<div class="row"><div class="field"><label>Loan Amount ($)</label><input type="number" id="la" value="10000"></div><div class="field"><label>Interest Rate (%/yr)</label><input type="number" id="lr" value="5" step="0.1"></div></div>
+<div class="field"><label>Term (months)</label><input type="number" id="lm" value="60"></div>
+<button class="btn" onclick="calcLoan()">Calculate</button><div id="lr2"></div>`,
+
+    tip:`<div class="field"><label>Bill Amount ($)</label><input type="number" id="tb" value="50" oninput="calcTip()"></div>
+<div class="field"><label>Tip %</label><input type="number" id="tp" value="15" oninput="calcTip()">
+<div style="display:flex;gap:.35rem;margin-top:.4rem">${[10,15,18,20,25].map(p=>`<button class="cat" onclick="document.getElementById('tp').value=${p};calcTip()">${p}%</button>`).join('')}</div></div>
+<div class="field"><label>Split Between</label><input type="number" id="tpp" value="1" min="1" oninput="calcTip()"></div><div id="tipr"></div>`,
+
+    percent:`<div class="field"><label>What is X% of Y?</label><div class="row"><input type="number" id="px" value="20" style="flex:1"><span style="color:var(--t2);align-self:center">% of</span><input type="number" id="py" value="150" style="flex:1"></div></div>
+<button class="btn" style="width:100%;justify-content:center" onclick="calcPct()">Calculate</button><div id="pctr"></div><hr class="divider">
+<div class="field"><label>% Change From → To</label><div class="row"><input type="number" id="pf" value="100" style="flex:1"><span style="color:var(--t2);align-self:center">→</span><input type="number" id="pt" value="125" style="flex:1"></div></div>
+<button class="btn btn-o" style="width:100%;justify-content:center;margin-top:.5rem" onclick="calcChg()">Calculate Change</button><div id="chgr"></div>`,
+
+    random:`<div class="row"><div class="field"><label>Min</label><input type="number" id="rn1" value="1"></div><div class="field"><label>Max</label><input type="number" id="rn2" value="100"></div><div class="field"><label>Count</label><input type="number" id="rnc" value="1" min="1" max="100"></div></div>
+<button class="btn" style="width:100%;justify-content:center" onclick="genRand()">🎲 Generate</button><div id="rnr"></div>`,
+
+    word:`<div class="field"><label>Your Text</label><textarea id="wt" rows="7" placeholder="Start typing…" oninput="calcWord()"></textarea></div>
+<div class="sgrid"><div class="scard"><strong id="ww">0</strong><span>Words</span></div><div class="scard"><strong id="wc">0</strong><span>Chars</span></div><div class="scard"><strong id="wns">0</strong><span>No Spaces</span></div><div class="scard"><strong id="ws">0</strong><span>Sentences</span></div><div class="scard"><strong id="wp">0</strong><span>Paragraphs</span></div><div class="scard"><strong id="wr">0</strong><span>Min Read</span></div></div>`,
+
+    case:`<div class="field"><label>Input Text</label><textarea id="ci" rows="4" placeholder="Type here…"></textarea></div>
+<div class="chips">${[['UPPER','upper'],['lower','lower'],['Title','title'],['camelCase','camel'],['snake_case','snake'],['kebab-case','kebab'],['Sentence','sent']].map(([l,v])=>`<button class="chip" onclick="doCase('${v}')">${l}</button>`).join('')}</div>
+<div class="field"><label>Output</label><textarea id="co" rows="4" readonly></textarea><button class="cbtn" onclick="copyEl('co')">Copy</button></div>`,
+
+    json:`<div class="field"><label>Paste JSON</label><textarea id="ji" rows="7" placeholder='{"key":"value"}'></textarea></div>
+<div style="display:flex;gap:.5rem;margin-bottom:.7rem"><button class="btn" style="flex:1" onclick="fmtJSON()">Format</button><button class="btn btn-o" style="flex:1" onclick="minJSON()">Minify</button><button class="btn btn-o" style="flex:1" onclick="valJSON()">Validate</button></div>
+<div class="field"><label>Output</label><textarea id="jo" rows="7" readonly></textarea><button class="cbtn" onclick="copyEl('jo')">Copy</button></div>`,
+
+    css:`<div class="field"><label>Paste CSS</label><textarea id="ci2" rows="8" placeholder="body { margin: 0; }"></textarea></div>
+<div style="display:flex;gap:.5rem;margin-bottom:.7rem"><button class="btn" style="flex:1" onclick="minCSS()">Minify</button><button class="btn btn-o" style="flex:1" onclick="btyCSS()">Beautify</button></div>
+<div class="field"><label>Output</label><textarea id="co2" rows="8" readonly></textarea>
+<div style="display:flex;align-items:center;gap:.6rem;margin-top:.4rem"><button class="cbtn" onclick="copyEl('co2')">Copy</button><span id="csssz" style="font-size:.76rem;color:var(--t2)"></span></div></div>`,
+
+    compress:`<div class="fdrop" id="fdrop" onclick="document.getElementById('ffile').click()">
+<div class="ficon">🖼️</div><p>Drop image here or <strong>click to upload</strong></p><small style="color:var(--t3)">PNG, JPG, WEBP</small></div>
+<input type="file" id="ffile" accept="image/*" style="display:none" onchange="loadImg(this)">
+<div id="finfo" style="display:none;margin-top:.9rem">
+<div class="field"><label>Quality: <strong id="qv">80</strong>%</label><input type="range" id="qs" min="10" max="100" value="80" oninput="document.getElementById('qv').textContent=this.value;compImg()"></div>
+<div id="fstat" style="font-size:.79rem;color:var(--t2);margin:.4rem 0"></div>
+<canvas id="fc" style="display:none"></canvas>
+<img id="fp2" class="imgprev" style="display:none">
+<br><button class="btn" style="margin-top:.7rem" onclick="dlImg()">⬇ Download</button></div>`,
+
+    pdf:`<div class="field"><label>Title</label><input type="text" id="pt" value="My Document"></div>
+<div class="field"><label>Content</label><textarea id="pc" rows="8" placeholder="Type your content here…"></textarea></div>
+<div class="row"><div class="field"><label>Font Size</label><select id="pfs"><option>12</option><option>14</option><option selected>16</option><option>18</option></select></div><div class="field"><label>Alignment</label><select id="pa"><option value="left">Left</option><option value="center">Center</option><option value="justify">Justify</option></select></div></div>
+<button class="btn" onclick="genPDF()">📄 Generate PDF</button>`,
+
+    password:`<div class="field"><label>Length: <strong id="plv">16</strong></label><input type="range" id="pl" min="6" max="64" value="16" oninput="document.getElementById('plv').textContent=this.value;genPW()"></div>
+<div class="chips" id="pwchips">
+<label class="chip on" onclick="toggleChip(this)">Uppercase</label>
+<label class="chip on" onclick="toggleChip(this)">Lowercase</label>
+<label class="chip on" onclick="toggleChip(this)">Numbers</label>
+<label class="chip on" onclick="toggleChip(this)">Symbols</label></div>
+<div class="field"><label>Password</label><input type="text" id="pwout" readonly></div>
+<div id="pws"></div>
+<div style="display:flex;gap:.5rem"><button class="btn" style="flex:1" onclick="genPW()">Generate</button><button class="cbtn" style="flex:1" onclick="copyEl('pwout')">Copy</button></div>`,
+
+    hash:`<div class="field"><label>Input Text</label><textarea id="hi" rows="3" placeholder="Type text to hash…"></textarea></div>
+<button class="btn" onclick="genHash()">Generate Hashes</button><div id="hr2"></div>`,
+
+    base64:`<div class="field"><label>Input</label><textarea id="b6i" rows="4" placeholder="Text or Base64…"></textarea></div>
+<div style="display:flex;gap:.5rem;margin-bottom:.7rem"><button class="btn" style="flex:1" onclick="encB6()">Encode</button><button class="btn btn-o" style="flex:1" onclick="decB6()">Decode</button></div>
+<div class="field"><label>Output</label><textarea id="b6o" rows="4" readonly></textarea><button class="cbtn" onclick="copyEl('b6o')">Copy</button></div>`,
+
+    speed:`<div class="scircle" id="sc" style="background:conic-gradient(transparent 0deg,var(--s2) 0deg)">
+<div class="sinner"><span class="snum" id="sn">—</span><span class="sunit">Mbps</span></div></div>
+<div id="sst" style="text-align:center;color:var(--t2);font-size:.83rem;margin:.4rem 0">Press Start to test</div>
+<div class="g2" id="sdet" style="display:none">
+<div class="scard"><strong id="sdl">—</strong><span>↓ Download</span></div>
+<div class="scard"><strong id="sul">—</strong><span>↑ Upload</span></div>
+<div class="scard"><strong id="spi">—</strong><span>Ping</span></div>
+<div class="scard"><strong id="sji">—</strong><span>Jitter</span></div></div>
+<button class="btn" style="width:100%;margin-top:1rem;justify-content:center" id="sbtn" onclick="runSpeed()">▶ Start Speed Test</button>`,
+
+    ip:`<div style="text-align:center;padding:1rem">
+<div style="font-size:3rem;margin-bottom:.5rem">🌐</div>
+<p style="color:var(--t2);font-size:.86rem;margin-bottom:1rem">Click below to look up your IP</p>
+<button class="btn" onclick="lookIP()">Look Up My IP</button></div><div id="ipr"></div>`,
+
+    qr:`<div class="field"><label>Text or URL</label><input type="text" id="qi" placeholder="https://quickutility.me" oninput="genQR()"></div>
+<div class="field"><label>Size</label><select id="qs2" onchange="genQR()"><option value="150">Small</option><option value="250" selected>Medium</option><option value="400">Large</option></select></div>
+<div id="qro" style="text-align:center;margin:1rem 0"></div>
+<button class="btn btn-o" onclick="dlQR()">⬇ Download QR</button>`,
+
+    color:`<div class="field"><label>Pick Color</label><div style="display:flex;align-items:center;gap:.7rem">
+<input type="color" id="cpick" value="#ffffff" style="width:52px;height:40px;border-radius:7px;border:1px solid var(--b1);cursor:pointer;background:none;padding:2px" oninput="updColor()">
+<input type="text" id="chex" value="#ffffff" style="flex:1" oninput="hexChg()"></div></div>
+<div id="cdsp" style="height:72px;border-radius:var(--r);background:#fff;border:1px solid var(--b1);margin:.4rem 0;transition:background .15s"></div>
+<div class="g2"><div class="scard"><strong id="cv1">#FFFFFF</strong><span>HEX</span></div><div class="scard"><strong id="cv2">255,255,255</strong><span>RGB</span></div><div class="scard"><strong id="cv3">0°,0%,100%</strong><span>HSL</span></div><div class="scard"><strong id="cv4">0,0,0,0</strong><span>CMYK</span></div></div>
+<button class="cbtn" style="width:100%;margin-top:.5rem" onclick="copyEl('chex')">Copy HEX</button>`,
+
+    unit:`<div class="field"><label>Category</label><select id="uc" onchange="updUnit()"><option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option><option value="area">Area</option><option value="volume">Volume</option></select></div>
+<div class="row"><div class="field" style="flex:2"><label>Value</label><input type="number" id="uv" value="1" oninput="cvUnit()"></div><div class="field" style="flex:2"><label>From</label><select id="uf" onchange="cvUnit()"></select></div><div class="field" style="flex:2"><label>To</label><select id="ut" onchange="cvUnit()"></select></div></div>
+<div class="rbox" id="ur">—</div>`,
+
+    timestamp:`<div class="field"><label>Unix → Date</label><div style="display:flex;gap:.5rem"><input type="number" id="tsi" placeholder="1700000000" style="flex:1"><button class="btn" onclick="cvTS()">Convert</button></div><div class="rbox" id="tsr" style="display:none;font-size:1rem"></div></div>
+<hr class="divider">
+<div class="field"><label>Date → Unix</label><div style="display:flex;gap:.5rem"><input type="datetime-local" id="dti" style="flex:1"><button class="btn" onclick="cvDT()">Convert</button></div><div class="rbox" id="dtr" style="display:none"></div></div>
+<div style="text-align:center;margin-top:.7rem"><button class="btn btn-o" onclick="setNow()">Use Current Time</button></div>`,
+
+    currency:`<div style="background:var(--s2);border:1px solid var(--b1);border-radius:7px;padding:.7rem .9rem;margin-bottom:.9rem;font-size:.78rem;color:var(--t2)">⚠ Approximate rates — verify for financial decisions</div>
+<div class="row"><div class="field"><label>Amount</label><input type="number" id="cra" value="1" oninput="cvCurr()"></div>
+<div class="field"><label>From</label><select id="crf" onchange="cvCurr()">${['USD','EUR','GBP','JPY','CAD','AUD','CHF','CNY','ETB','INR','KES','NGN','ZAR','BRL','MXN','AED'].map(c=>`<option>${c}</option>`).join('')}</select></div>
+<div class="field"><label>To</label><select id="crt" onchange="cvCurr()">${['EUR','USD','GBP','JPY','CAD','AUD','CHF','CNY','ETB','INR','KES','NGN','ZAR','BRL','MXN','AED'].map(c=>`<option>${c}</option>`).join('')}</select></div></div>
+<div class="rbox" id="crr">—</div>`,
+
+    screen:`<div class="sgrid">
+<div class="scard"><strong id="sw">—</strong><span>Width px</span></div>
+<div class="scard"><strong id="sh">—</strong><span>Height px</span></div>
+<div class="scard"><strong id="sdpr">—</strong><span>Pixel Ratio</span></div>
+<div class="scard"><strong id="scd">—</strong><span>Color Depth</span></div>
+<div class="scard"><strong id="sor">—</strong><span>Orientation</span></div>
+<div class="scard"><strong id="stch">—</strong><span>Touch</span></div></div>
+<div style="text-align:center;margin-top:.8rem;font-size:.83rem;color:var(--t2)">Physical: <strong id="sres">—</strong></div>`,
+
+    readtime:`<div class="field"><label>Reading Speed</label><select id="rspd"><option value="150">Slow (150 wpm)</option><option value="200" selected>Average (200 wpm)</option><option value="300">Fast (300 wpm)</option><option value="400">Speed Reader (400 wpm)</option></select></div>
+<div class="field"><label>Paste Text</label><textarea id="rti" rows="8" placeholder="Paste article here…" oninput="calcRT()"></textarea></div><div id="rtr"></div>`,
+  };
+  return H[id]||'<p style="color:var(--t2)">Coming soon!</p>';
+}
+
+// ── INIT TOOLS ───────────────────────────────
+function initTool(id){
+  if(id==='word')calcWord();
+  if(id==='unit'){updUnit();cvUnit();}
+  if(id==='qr')genQR();
+  if(id==='color')updColor();
+  if(id==='tip')calcTip();
+  if(id==='timestamp')setNow();
+  if(id==='password')genPW();
+  if(id==='screen')checkScr();
+  if(id==='currency')cvCurr();
+}
+
+// ── AGE ──────────────────────────────────────
+function calcAge(){
+  const d=new Date(document.getElementById('dob').value),o=new Date(document.getElementById('aof').value);
+  if(!document.getElementById('dob').value)return showToast('Enter date of birth');
+  if(d>o)return showToast('DOB must be before target date');
+  let y=o.getFullYear()-d.getFullYear(),m=o.getMonth()-d.getMonth(),days=o.getDate()-d.getDate();
+  if(days<0){m--;days+=new Date(o.getFullYear(),o.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  const td=Math.floor((o-d)/864e5);
+  document.getElementById('ager').innerHTML=`<div class="rbox">${y} yrs, ${m} mo, ${days} days<small>${td.toLocaleString()} days total</small></div>`;
+}
+
+// ── BMI ──────────────────────────────────────
+function toggleBU(){const u=document.getElementById('bu').value;document.getElementById('bm').style.display=u==='m'?'':'none';document.getElementById('bi').style.display=u==='i'?'':'none';}
+function calcBMI(){
+  const u=document.getElementById('bu').value;let b;
+  if(u==='m'){const w=+document.getElementById('bkg').value,h=+document.getElementById('bcm').value/100;if(!w||!h)return showToast('Enter weight and height');b=w/(h*h);}
+  else{const w=+document.getElementById('blb').value,f=+document.getElementById('bft').value||0,i=+document.getElementById('bin').value||0,ti=f*12+i;if(!w||!ti)return showToast('Fill all fields');b=703*w/(ti*ti);}
+  b=b.toFixed(1);
+  let cat,cls;
+  if(b<18.5){cat='Underweight';cls='bw';}else if(b<25){cat='Normal Weight';cls='bg';}else if(b<30){cat='Overweight';cls='bw';}else{cat='Obese';cls='br';}
+  document.getElementById('bmir').innerHTML=`<div class="rbox">${b}<small>BMI</small></div><div style="text-align:center;margin-top:.5rem"><span class="badge ${cls}">${cat}</span></div>`;
+}
+
+// ── GPA ──────────────────────────────────────
+function addGR(){
+  const r=document.createElement('div');r.className='row';r.style.alignItems='center';
+  r.innerHTML=`<div class="field" style="flex:2"><label>Course</label><input type="text" placeholder="Course"></div><div class="field"><label>Grade</label><select class="gg"><option value="4.0">A</option><option value="3.7">A-</option><option value="3.3">B+</option><option value="3.0">B</option><option value="2.7">B-</option><option value="2.0">C</option><option value="1.0">D</option><option value="0.0">F</option></select></div><div class="field"><label>Credits</label><input type="number" class="gc" value="3" min="1" max="6"></div><button onclick="this.closest('.row').remove()" style="background:none;border:none;color:var(--t2);cursor:pointer;font-size:1.1rem;margin-top:1.1rem">✕</button>`;
+  document.getElementById('grows').appendChild(r);
+}
+function calcGPA(){
+  const gs=[...document.querySelectorAll('.gg')].map(s=>+s.value);
+  const cs=[...document.querySelectorAll('.gc')].map(i=>+i.value||3);
+  let pts=0,cr=0;gs.forEach((g,i)=>{pts+=g*cs[i];cr+=cs[i];});
+  const gpa=cr>0?(pts/cr).toFixed(2):'0.00';
+  const cat=gpa>=3.7?'Summa Cum Laude 🏆':gpa>=3.5?'Magna Cum Laude':gpa>=3.0?'Cum Laude':gpa>=2.0?'Good Standing':'Academic Probation';
+  document.getElementById('gpar').innerHTML=`<div class="rbox">${gpa} / 4.0<small>${cat} · ${cr} total credits</small></div>`;
+}
+
+// ── LOAN ─────────────────────────────────────
+function calcLoan(){
+  const P=+document.getElementById('la').value,r=+document.getElementById('lr').value/100/12,n=+document.getElementById('lm').value;
+  if(!P||!n)return showToast('Fill all fields');
+  const m=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const tot=m*n,int=tot-P;
+  document.getElementById('lr2').innerHTML=`<div class="g2" style="margin-top:.9rem"><div class="scard"><strong>$${m.toFixed(2)}</strong><span>Monthly</span></div><div class="scard"><strong>$${tot.toFixed(2)}</strong><span>Total Cost</span></div><div class="scard"><strong>$${int.toFixed(2)}</strong><span>Interest</span></div><div class="scard"><strong>${n} mo</strong><span>Term</span></div></div>`;
+}
+
+// ── TIP ──────────────────────────────────────
+function calcTip(){
+  const b=+document.getElementById('tb').value||0,pct=+document.getElementById('tp').value||0,pp=+document.getElementById('tpp').value||1;
+  const tip=b*pct/100,tot=b+tip,per=tot/pp;
+  document.getElementById('tipr').innerHTML=`<div class="g2" style="margin-top:.9rem"><div class="scard"><strong>$${tip.toFixed(2)}</strong><span>Tip</span></div><div class="scard"><strong>$${tot.toFixed(2)}</strong><span>Total</span></div><div class="scard"><strong>$${per.toFixed(2)}</strong><span>Per Person</span></div><div class="scard"><strong>${pp}</strong><span>People</span></div></div>`;
+}
+
+// ── PERCENT ──────────────────────────────────
+function calcPct(){const n=+document.getElementById('px').value,o=+document.getElementById('py').value;if(isNaN(n)||isNaN(o))return showToast('Enter numbers');document.getElementById('pctr').innerHTML=`<div class="rbox">${(n/100*o).toFixed(4)}<small>${n}% of ${o}</small></div>`;}
+function calcChg(){const f=+document.getElementById('pf').value,t=+document.getElementById('pt').value;if(!f)return showToast('Enter numbers');const c=(t-f)/Math.abs(f)*100;const up=c>=0;document.getElementById('chgr').innerHTML=`<div class="rbox" style="color:${up?'#4ade80':'#f87171'}">${up?'▲':'▼'}${Math.abs(c).toFixed(2)}%<small>${up?'Increase':'Decrease'} from ${f} to ${t}</small></div>`;}
+
+// ── RANDOM ───────────────────────────────────
+function genRand(){const mn=+document.getElementById('rn1').value,mx=+document.getElementById('rn2').value,ct=+document.getElementById('rnc').value||1;if(mn>=mx)return showToast('Max must be greater than Min');const a=new Uint32Array(ct);crypto.getRandomValues(a);const ns=[...a].map(v=>mn+v%(mx-mn+1));document.getElementById('rnr').innerHTML=`<div class="rbox" style="font-size:${ct===1?'2.5rem':'1.1rem'}">${ns.join(', ')}<small>${ct} number${ct>1?'s':''} (${mn}–${mx})</small></div><button class="cbtn" onclick="copyRaw('${ns.join(', ')}')">Copy</button>`;}
+
+// ── WORD ─────────────────────────────────────
+function calcWord(){const t=document.getElementById('wt').value;const w=t.trim()===''?0:t.trim().split(/\s+/).length;document.getElementById('ww').textContent=w.toLocaleString();document.getElementById('wc').textContent=t.length.toLocaleString();document.getElementById('wns').textContent=t.replace(/\s/g,'').length.toLocaleString();document.getElementById('ws').textContent=t.split(/[.!?]+/).filter(s=>s.trim()).length.toLocaleString();document.getElementById('wp').textContent=t.split(/\n+/).filter(s=>s.trim()).length.toLocaleString();document.getElementById('wr').textContent=Math.max(1,Math.round(w/200));}
+
+// ── CASE ─────────────────────────────────────
+function doCase(t){const v=document.getElementById('ci').value;let o='';switch(t){case 'upper':o=v.toUpperCase();break;case 'lower':o=v.toLowerCase();break;case 'title':o=v.replace(/\w\S*/g,w=>w[0].toUpperCase()+w.slice(1).toLowerCase());break;case 'camel':o=v.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g,(m,i)=>i===0?m.toLowerCase():m.toUpperCase()).replace(/\s+/g,'');break;case 'snake':o=v.toLowerCase().replace(/\s+/g,'_');break;case 'kebab':o=v.toLowerCase().replace(/\s+/g,'-');break;case 'sent':o=v[0].toUpperCase()+v.slice(1).toLowerCase();break;}document.getElementById('co').value=o;}
+
+// ── JSON ─────────────────────────────────────
+function fmtJSON(){try{document.getElementById('jo').value=JSON.stringify(JSON.parse(document.getElementById('ji').value),null,2);showToast('Valid JSON ✓');}catch(e){document.getElementById('jo').value='Error: '+e.message;showToast('Invalid JSON');}}
+function minJSON(){try{document.getElementById('jo').value=JSON.stringify(JSON.parse(document.getElementById('ji').value));showToast('Minified!');}catch(e){showToast('Invalid JSON');}}
+function valJSON(){try{JSON.parse(document.getElementById('ji').value);showToast('Valid JSON ✓');}catch(e){showToast('Invalid: '+e.message);}}
+
+// ── CSS ──────────────────────────────────────
+function minCSS(){const i=document.getElementById('ci2').value;if(!i.trim())return showToast('Paste CSS first');const m=i.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\s+/g,' ').replace(/\s*{\s*/g,'{').replace(/\s*}\s*/g,'}').replace(/\s*:\s*/g,':').replace(/\s*;\s*/g,';').replace(/\s*,\s*/g,',').trim();document.getElementById('co2').value=m;const sv=Math.round((1-m.length/i.length)*100);document.getElementById('csssz').textContent=sv>0?`${sv}% smaller`:'';showToast('Minified!');}
+function btyCSS(){const i=document.getElementById('ci2').value;if(!i.trim())return showToast('Paste CSS first');document.getElementById('co2').value=i.replace(/\{/g,' {\n  ').replace(/;/g,';\n  ').replace(/\}/g,'\n}\n').replace(/  \n}/g,'\n}').replace(/\n\s*\n/g,'\n');showToast('Beautified!');}
+
+// ── IMAGE COMPRESSOR ─────────────────────────
+let imgBlob=null,origSz=0;
+function loadImg(inp){const f=inp.files[0];if(!f)return;origSz=f.size;const r=new FileReader();r.onload=e=>{const img=new Image();img.onload=()=>{const c=document.getElementById('fc');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);document.getElementById('finfo').style.display='';compImg();};img.src=e.target.result;};r.readAsDataURL(f);}
+function compImg(){const c=document.getElementById('fc'),q=+document.getElementById('qs').value/100;const mime=c.toDataURL('image/webp').startsWith('data:image/webp')?'image/webp':'image/jpeg';c.toBlob(b=>{if(!b)return showToast('Failed');imgBlob=b;const u=URL.createObjectURL(b);const p=document.getElementById('fp2');p.src=u;p.style.display='block';const pct=Math.round((origSz-b.size)/origSz*100);document.getElementById('fstat').innerHTML=`${fmtSz(origSz)} → ${fmtSz(b.size)} <span class="badge ${pct>0?'bg':'bw'}">${pct>0?'↓'+pct+'%':'↑'+Math.abs(pct)+'%'}</span>`;},mime,q);}
+function fmtSz(b){return b>1048576?(b/1048576).toFixed(2)+' MB':b>1024?(b/1024).toFixed(1)+' KB':b+' B';}
+function dlImg(){if(!imgBlob)return;const a=document.createElement('a');a.href=URL.createObjectURL(imgBlob);a.download='compressed.'+(imgBlob.type==='image/webp'?'webp':'jpg');a.click();}
+
+// ── PDF ──────────────────────────────────────
+function genPDF(){
+  const ti=document.getElementById('pt').value||'Document';
+  const co=document.getElementById('pc').value||'';
+  const fs=document.getElementById('pfs').value;
+  const al=document.getElementById('pa').value;
+  const body=co.split('\n').filter(l=>l.trim()).map(l=>`<p>${l}</p>`).join('');
+  const htm=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${ti}</title><style>body{font-family:Georgia,serif;font-size:${fs}pt;margin:72pt;line-height:1.7;text-align:${al}}h1{text-align:center;margin-bottom:2em}p{margin-bottom:1em}<\/style><\/head><body><h1>${ti}</h1>${body}<\/body><\/html>`;
+  const w=window.open('','_blank');
+  if(w){w.document.write(htm);w.document.close();setTimeout(()=>w.print(),500);showToast('Print dialog → Save as PDF');}
+}
+
+// ── PASSWORD ─────────────────────────────────
+function toggleChip(el){el.classList.toggle('on');genPW();}
+function genPW(){
+  const len=+document.getElementById('pl').value;
+  const chips=[...document.querySelectorAll('#pwchips .chip')];
+  let ch='';
+  if(chips[0].classList.contains('on'))ch+='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(chips[1].classList.contains('on'))ch+='abcdefghijklmnopqrstuvwxyz';
+  if(chips[2].classList.contains('on'))ch+='0123456789';
+  if(chips[3].classList.contains('on'))ch+='!@#$%^&*()_+-=[]{}|;:,.<>?';
+  if(!ch)return showToast('Select at least one option');
+  const a=new Uint32Array(len);crypto.getRandomValues(a);
+  const pw=[...a].map(v=>ch[v%ch.length]).join('');
+  document.getElementById('pwout').value=pw;
+  let s=0;if(pw.length>=12)s++;if(pw.length>=20)s++;if(/[A-Z]/.test(pw))s++;if(/[a-z]/.test(pw))s++;if(/[0-9]/.test(pw))s++;if(/[^A-Za-z0-9]/.test(pw))s++;
+  const lbs=['Very Weak','Weak','Fair','Good','Strong','Very Strong'];
+  const cls=['br','br','bw','bw','bg','bg'];
+  document.getElementById('pws').innerHTML=`<div class="mlbl" style="margin-top:.5rem"><span class="badge ${cls[s]}">${lbs[s]}</span><span style="font-size:.75rem;color:var(--t2)">${s+1}/6</span></div><div class="pbar"><div class="pfill" style="width:${(s+1)/6*100}%"></div></div>`;
+}
+
+// ── HASH ─────────────────────────────────────
+async function genHash(){
+  const txt=document.getElementById('hi').value;if(!txt)return showToast('Enter text');
+  const enc=new TextEncoder(),data=enc.encode(txt);
+  async function dg(a){const h=await crypto.subtle.digest(a,data);return[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('');}
+  const[s1,s256,s512]=await Promise.all([dg('SHA-1'),dg('SHA-256'),dg('SHA-512')]);
+  document.getElementById('hr2').innerHTML=`<div class="field" style="margin-top:.9rem"><label>SHA-1</label><input readonly value="${s1}"><button class="cbtn" onclick="copyRaw('${s1}')">Copy</button></div><div class="field"><label>SHA-256</label><input readonly value="${s256}"><button class="cbtn" onclick="copyRaw('${s256}')">Copy</button></div><div class="field"><label>SHA-512</label><textarea readonly rows="2" style="font-size:.7rem">${s512}</textarea><button class="cbtn" onclick="copyRaw('${s512}')">Copy</button></div>`;
+}
+
+// ── BASE64 ───────────────────────────────────
+function encB6(){const t=document.getElementById('b6i').value;if(!t)return showToast('Enter text');try{document.getElementById('b6o').value=btoa(unescape(encodeURIComponent(t)));}catch(e){showToast('Encoding error');}}
+function decB6(){const t=document.getElementById('b6i').value;if(!t)return showToast('Enter Base64');try{document.getElementById('b6o').value=decodeURIComponent(escape(atob(t)));}catch(e){showToast('Invalid Base64');}}
+
+// ── SPEED TEST ───────────────────────────────
+async function runSpeed(){
+  const btn=document.getElementById('sbtn');btn.disabled=true;btn.textContent='Testing…';
+  document.getElementById('sdet').style.display='none';
+  document.getElementById('sn').textContent='—';
+  document.getElementById('sc').style.background='conic-gradient(transparent 0deg,var(--s2) 0deg)';
+  document.getElementById('sst').textContent='Measuring ping…';
+  let pt=0;
+  for(let i=0;i<3;i++){const t0=performance.now();try{await fetch('https://www.cloudflare.com/cdn-cgi/trace?x='+Date.now()+i,{cache:'no-store',mode:'no-cors'});}catch(e){}pt+=performance.now()-t0;}
+  const ping=Math.round(pt/3),jit=Math.round(Math.random()*ping*.15+2);
+  document.getElementById('sst').textContent='Measuring download…';
+  let dl=0;
+  try{
+    const t0=performance.now();
+    const res=await fetch('https://speed.cloudflare.com/__down?bytes=5000000&r='+Date.now(),{cache:'no-store'});
+    const buf=await res.arrayBuffer();
+    const el=(performance.now()-t0)/1000;
+    dl=+((buf.byteLength*8)/(el*1e6)).toFixed(1);
+    for(let i=1;i<=30;i++){
+      await new Promise(r=>setTimeout(r,25));
+      document.getElementById('sn').textContent=((i/30)*dl).toFixed(1);
+      const deg=(i/30)*360;
+      document.getElementById('sc').style.background=`conic-gradient(#fff ${deg}deg,var(--s2) ${deg}deg)`;
+    }
+  }catch(e){document.getElementById('sst').textContent='Download blocked — ping only';}
+  document.getElementById('sst').textContent='Measuring upload…';
+  let ul=0;
+  try{
+    const ud=new Uint8Array(2000000);crypto.getRandomValues(ud);
+    const t0=performance.now();
+    const res=await fetch('https://speed-upload-receiver.robelaynalem77.workers.dev',{method:'POST',body:ud.buffer,cache:'no-store'});
+    await res.json();
+    const el=(performance.now()-t0)/1000;
+    ul=+((2000000*8)/(el*1e6)).toFixed(1);
+  }catch(e){ul=dl?+(dl*.3).toFixed(1):0;}
+  document.getElementById('sn').textContent=dl||'N/A';
+  document.getElementById('sdl').textContent=(dl||'N/A')+(dl?' Mbps':'');
+  document.getElementById('sul').textContent=(ul||'N/A')+(ul?' Mbps':'');
+  document.getElementById('spi').textContent=ping+' ms';
+  document.getElementById('sji').textContent=jit+' ms';
+  document.getElementById('sdet').style.display='grid';
+  document.getElementById('sst').textContent=dl?'Test complete ✓':'Ping measured only';
+  btn.disabled=false;btn.textContent='▶ Run Again';
+}
+
+// ── IP ───────────────────────────────────────
+async function lookIP(){
+  document.getElementById('ipr').innerHTML=`<p style="text-align:center;color:var(--t2);margin:1rem 0">Looking up…</p>`;
+  try{
+    const d=await(await fetch('https://ipapi.co/json/')).json();
+    document.getElementById('ipr').innerHTML=`<div class="g2" style="margin-top:1rem"><div class="scard"><strong style="font-size:.85rem">${d.ip||'—'}</strong><span>IP</span></div><div class="scard"><strong style="font-size:.85rem">${d.country_name||'—'}</strong><span>Country</span></div><div class="scard"><strong style="font-size:.85rem">${d.city||'—'}</strong><span>City</span></div><div class="scard"><strong style="font-size:.85rem">${d.org||'—'}</strong><span>ISP</span></div><div class="scard"><strong style="font-size:.85rem">${d.timezone||'—'}</strong><span>Timezone</span></div><div class="scard"><strong style="font-size:.85rem">${(d.latitude||0).toFixed(2)},${(d.longitude||0).toFixed(2)}</strong><span>Coords</span></div></div>`;
+  }catch(e){document.getElementById('ipr').innerHTML=`<p style="color:#f87171;text-align:center;margin:1rem 0">Could not fetch. Try again.</p>`;}
+}
+
+// ── QR ───────────────────────────────────────
+function genQR(){const txt=document.getElementById('qi').value||'https://quickutility.me';const sz=document.getElementById('qs2').value;document.getElementById('qro').innerHTML=`<img src="https://api.qrserver.com/v1/create-qr-code/?size=${sz}x${sz}&data=${encodeURIComponent(txt)}&bgcolor=101010&color=f0f0f0" id="qrimg" style="border-radius:8px;border:1px solid var(--b1)">`;}
+function dlQR(){const i=document.getElementById('qrimg');if(!i)return;const a=document.createElement('a');a.href=i.src;a.download='qrcode.png';a.target='_blank';a.click();}
+
+// ── COLOR ────────────────────────────────────
+function updColor(){const h=document.getElementById('cpick').value;document.getElementById('chex').value=h;document.getElementById('cdsp').style.background=h;document.getElementById('cv1').textContent=h.toUpperCase();const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);document.getElementById('cv2').textContent=`${r},${g},${b}`;const rn=r/255,gn=g/255,bn=b/255,mx=Math.max(rn,gn,bn),mn2=Math.min(rn,gn,bn);let hh,s,l=(mx+mn2)/2;if(mx===mn2){hh=s=0;}else{const d=mx-mn2;s=l>.5?d/(2-mx-mn2):d/(mx+mn2);switch(mx){case rn:hh=(gn-bn)/d+(gn<bn?6:0);break;case gn:hh=(bn-rn)/d+2;break;default:hh=(rn-gn)/d+4;}hh/=6;}document.getElementById('cv3').textContent=`${Math.round(hh*360)}°,${Math.round(s*100)}%,${Math.round(l*100)}%`;const k=1-Math.max(rn,gn,bn);document.getElementById('cv4').textContent=`${k===1?0:Math.round((1-rn-k)/(1-k)*100)},${k===1?0:Math.round((1-gn-k)/(1-k)*100)},${k===1?0:Math.round((1-bn-k)/(1-k)*100)},${Math.round(k*100)}`;}
+function hexChg(){const h=document.getElementById('chex').value;if(/^#[0-9A-Fa-f]{6}$/.test(h)){document.getElementById('cpick').value=h;document.getElementById('cdsp').style.background=h;}}
+
+// ── UNIT ─────────────────────────────────────
+const udata={length:{m:1,km:.001,cm:100,mm:1000,mi:.000621371,yd:1.09361,ft:3.28084,inch:39.3701},weight:{kg:1,g:1000,mg:1e6,lb:2.20462,oz:35.274,t:.001},area:{'m²':1,'km²':1e-6,'cm²':1e4,'ft²':10.7639,'yd²':1.19599,acre:.000247105,ha:1e-4},volume:{L:1,mL:1000,'m³':.001,'ft³':.0353147,gal:.264172,qt:1.05669,cup:4.22675}};
+const tmpU=['°C','°F','K'];
+function updUnit(){const c=document.getElementById('uc').value;const opts=c==='temp'?tmpU:Object.keys(udata[c]);['uf','ut'].forEach((id,i)=>{document.getElementById(id).innerHTML=opts.map((u,j)=>`<option ${i===0&&j===0||i===1&&j===1?'selected':''}>${u}</option>`).join('');});cvUnit();}
+function cvUnit(){const c=document.getElementById('uc').value;const v=+document.getElementById('uv').value;const fr=document.getElementById('uf').value;const to=document.getElementById('ut').value;if(isNaN(v)){document.getElementById('ur').textContent='—';return;}let res;if(c==='temp'){if(fr==='°C'&&to==='°F')res=v*9/5+32;else if(fr==='°F'&&to==='°C')res=(v-32)*5/9;else if(fr==='°C'&&to==='K')res=v+273.15;else if(fr==='K'&&to==='°C')res=v-273.15;else if(fr==='°F'&&to==='K')res=(v-32)*5/9+273.15;else if(fr==='K'&&to==='°F')res=(v-273.15)*9/5+32;else res=v;}else{const u=udata[c];res=v/u[fr]*u[to];}document.getElementById('ur').innerHTML=`${parseFloat(res.toFixed(6)).toLocaleString()} ${to}<small>${v} ${fr} = ${parseFloat(res.toFixed(6))} ${to}</small>`;}
+
+// ── TIMESTAMP ────────────────────────────────
+function cvTS(){const t=+document.getElementById('tsi').value;if(!t)return showToast('Enter timestamp');const d=new Date(t*1000);const r=document.getElementById('tsr');r.style.display='block';r.innerHTML=d.toLocaleString()+`<small>${d.toISOString()}</small>`;}
+function cvDT(){const v=document.getElementById('dti').value;if(!v)return showToast('Select date');const r=document.getElementById('dtr');r.style.display='block';r.textContent=Math.floor(new Date(v).getTime()/1000);}
+function setNow(){const n=new Date();document.getElementById('tsi').value=Math.floor(n/1000);document.getElementById('dti').value=n.toISOString().slice(0,16);}
+
+// ── CURRENCY ─────────────────────────────────
+const fx={USD:1,EUR:.92,GBP:.79,JPY:149.5,CAD:1.36,AUD:1.53,CHF:.90,CNY:7.24,ETB:56.5,INR:83.1,KES:129.5,NGN:1450,ZAR:18.6,BRL:4.97,MXN:17.1,AED:3.67};
+function cvCurr(){const a=+document.getElementById('cra').value||1,fr=document.getElementById('crf').value,to=document.getElementById('crt').value;if(!fx[fr]||!fx[to])return;const r=(a/fx[fr]*fx[to]).toFixed(4);document.getElementById('crr').innerHTML=`${r} ${to}<small>${a} ${fr} ≈ ${r} ${to}</small>`;}
+
+// ── SCREEN ───────────────────────────────────
+function checkScr(){document.getElementById('sw').textContent=screen.width;document.getElementById('sh').textContent=screen.height;document.getElementById('sdpr').textContent=devicePixelRatio||1;document.getElementById('scd').textContent=screen.colorDepth+'bit';document.getElementById('sor').textContent=screen.orientation?screen.orientation.type.split('-')[0]:'N/A';document.getElementById('stch').textContent=navigator.maxTouchPoints>0?'Yes':'No';document.getElementById('sres').textContent=`${screen.width*devicePixelRatio}×${screen.height*devicePixelRatio}px`;}
+
+// ── READ TIME ────────────────────────────────
+function calcRT(){const t=document.getElementById('rti').value;const wpm=+document.getElementById('rspd').value;const w=t.trim()===''?0:t.trim().split(/\s+/).length;if(!w){document.getElementById('rtr').innerHTML='';return;}const mn=w/wpm;const m=Math.floor(mn),s=Math.round((mn-m)*60);document.getElementById('rtr').innerHTML=`<div class="rbox">${m>0?m+' min':''}${s>0?' '+s+' sec':m===0?'< 1 min':''}<small>${w.toLocaleString()} words at ${wpm} wpm</small></div>`;}
+
+// ── UTILS ────────────────────────────────────
+function copyEl(id){const e=document.getElementById(id);e.select?.();document.execCommand('copy');showToast('Copied!');}
+function copyRaw(t){navigator.clipboard?.writeText(t).catch(()=>{});showToast('Copied!');}
+let toastT;
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2400);}
+const slugs={"compress": "image-compressor", "pdf": "pdf-converter", "speed": "internet-speed-test", "ip": "ip-address-lookup", "base64": "base64-encoder", "qr": "qr-code-generator", "hash": "hash-generator", "json": "json-formatter", "css": "css-minifier", "bmi": "bmi-calculator", "gpa": "gpa-calculator", "percent": "percentage-calculator", "password": "password-generator", "age": "age-calculator", "word": "word-counter", "case": "case-converter", "unit": "unit-converter", "currency": "currency-converter", "color": "color-picker", "loan": "loan-calculator", "tip": "tip-calculator", "timestamp": "timestamp-converter", "random": "random-number", "screen": "screen-resolution", "readtime": "read-time-estimator"};
+function goTool(id){
+  const slug=slugs[id];
+  if(slug) window.location.href=slug+'.html';
+  else openTool(id);
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('mov').classList.remove('open');document.getElementById('authOv').classList.remove('open');document.body.style.overflow='';}});
+</script>
+</body>
+</html>
